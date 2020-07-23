@@ -147,7 +147,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/07/23/Vue%E8%BF%87%E6%B8%A1-%E5%8A%A8%E7%94%BB/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/07/23/Vue%E8%BF%87%E6%B8%A1%E5%92%8C%E5%8A%A8%E7%94%BB/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -161,7 +161,7 @@
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
           
-            <a href="/2020/07/23/Vue%E8%BF%87%E6%B8%A1-%E5%8A%A8%E7%94%BB/" class="post-title-link" itemprop="url">Vue过渡&动画</a>
+            <a href="/2020/07/23/Vue%E8%BF%87%E6%B8%A1%E5%92%8C%E5%8A%A8%E7%94%BB/" class="post-title-link" itemprop="url">Vue过渡和动画</a>
         </h2>
 
         <div class="post-meta">
@@ -172,7 +172,7 @@
               <span class="post-meta-item-text">发表于</span>
               
 
-              <time title="创建时间：2020-07-23 09:41:32 / 修改时间：09:43:27" itemprop="dateCreated datePublished" datetime="2020-07-23T09:41:32+08:00">2020-07-23</time>
+              <time title="创建时间：2020-07-23 10:05:41 / 修改时间：10:07:04" itemprop="dateCreated datePublished" datetime="2020-07-23T10:05:41+08:00">2020-07-23</time>
             </span>
 
           
@@ -223,8 +223,7 @@
     opacity: 0;
 }</code></pre></li>
 </ol>
-<img src="/.com//transition.png">
-
+<p><img src="/2020/07/23/Vue%E8%BF%87%E6%B8%A1%E5%92%8C%E5%8A%A8%E7%94%BB/transition.png" alt="transition"></p>
 <p>对于这些在过渡中切换的类名来说，如果使用一个没有名字的 transition，则 v- 是这些类名的默认前缀。如果使用了 transition name=”my-transition”，那么 v-enter 会替换为 my-transition-enter。</p>
 <h4 id="自定义过渡的类名"><a href="#自定义过渡的类名" class="headerlink" title="自定义过渡的类名"></a>自定义过渡的类名</h4><p>可以通过以下 attribute 来自定义过渡类名：</p>
 <ul>
@@ -256,7 +255,7 @@
 <li>v-on:leave-cancelled=”leaveCancelled”</li>
 </ol>
 <p>这些钩子函数可以结合 CSS transitions/animations 使用，也可以单独使用。</p>
-<p>！<a href="images/transition.png">transition</a></p>
+<p>！<a href="transition.png">transition</a></p>
 <blockquote>
 <p>当只用 JavaScript 过渡的时候，在 enter 和 leave 中必须使用 done 进行回调。否则，它们将被同步调用，过渡会立即完成。</p>
 <p>推荐对于仅使用 JavaScript 过渡的元素添加 v-bind:css=”false”，Vue 会跳过 CSS 的检测。这也可以避免过渡过程中 CSS 的影响。</p>
@@ -1051,7 +1050,7 @@ a:visited { color: red; }</code></pre></li>
 </blockquote>
 <p>要将URL或电子邮件地址快速转换为链接，请将其括在尖括号中</p>
 <blockquote>
-<p><a href="https://https://songpurong.github.io/" target="_blank" rel="noopener">https://https://songpurong.github.io/</a><br><a href="mailto:&#x35;&#x30;&#x36;&#52;&#x33;&#57;&#53;&#x30;&#48;&#x40;&#113;&#113;&#46;&#x63;&#111;&#x6d;">&#x35;&#x30;&#x36;&#52;&#x33;&#57;&#53;&#x30;&#48;&#x40;&#113;&#113;&#46;&#x63;&#111;&#x6d;</a></p>
+<p><a href="https://https://songpurong.github.io/" target="_blank" rel="noopener">https://https://songpurong.github.io/</a><br><a href="mailto:&#53;&#48;&#54;&#x34;&#x33;&#x39;&#x35;&#48;&#48;&#x40;&#x71;&#113;&#x2e;&#99;&#x6f;&#x6d;">&#53;&#48;&#54;&#x34;&#x33;&#x39;&#x35;&#48;&#48;&#x40;&#x71;&#113;&#x2e;&#99;&#x6f;&#x6d;</a></p>
 </blockquote>
 <p>为了强调链接，在方括号和括号之前和之后添加星号</p>
 <blockquote>
