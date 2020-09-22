@@ -20,28 +20,34 @@
     var CONFIG = {"hostname":"yoursite.com","root":"/","scheme":"Pisces","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
   </script>
 
-  <meta property="og:type" content="website">
-<meta property="og:title" content="Pr_Song&#39;s Blog">
-<meta property="og:url" content="http://yoursite.com/page/2/index.html">
+  <meta name="description" content="目录 变量 嵌套 导入SASS文件 静默注释 混合器">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Sass学习手册">
+<meta property="og:url" content="http://yoursite.com/3/index.html">
 <meta property="og:site_name" content="Pr_Song&#39;s Blog">
+<meta property="og:description" content="目录 变量 嵌套 导入SASS文件 静默注释 混合器">
 <meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2020-07-16T12:30:22.000Z">
+<meta property="article:modified_time" content="2020-09-22T07:56:59.058Z">
 <meta property="article:author" content="Pr_Song">
+<meta property="article:tag" content="前端知识">
+<meta property="article:tag" content="css">
 <meta name="twitter:card" content="summary">
 
-<link rel="canonical" href="http://yoursite.com/page/2/">
+<link rel="canonical" href="http://yoursite.com/3/">
 
 
 <script id="page-configurations">
   // https://hexo.io/docs/variables.html
   CONFIG.page = {
     sidebar: "",
-    isHome : true,
-    isPost : false,
+    isHome : false,
+    isPost : true,
     lang   : 'zh-CN'
   };
 </script>
 
-  <title>Pr_Song's Blog</title>
+  <title>Sass学习手册 | Pr_Song's Blog</title>
   
 
 
@@ -156,9 +162,10 @@
         <div class="content-wrap">
           
 
-          <div class="content index posts-expand">
+          <div class="content post posts-expand">
             
-      
+
+    
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
@@ -174,10 +181,9 @@
       <meta itemprop="name" content="Pr_Song's Blog">
     </span>
       <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/3/" class="post-title-link" itemprop="url">Sass学习手册</a>
-        </h2>
+        <h1 class="post-title" itemprop="name headline">
+          Sass学习手册
+        </h1>
 
         <div class="post-meta">
             <span class="post-meta-item">
@@ -216,195 +222,274 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <h2 id="目录"><a href="#目录" class="headerlink" title="目录"></a>目录</h2><ol>
+        <h2 id="目录"><a href="#目录" class="headerlink" title="目录"></a>目录</h2><ol>
 <li><a href="#1">变量</a></li>
 <li><a href="#2">嵌套</a></li>
 <li><a href="#3">导入SASS文件</a></li>
 <li><a href="#4">静默注释</a></li>
 <li><a href="#5">混合器</a></li>
 </ol>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/3/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
+<a id="more"></a>
+
+<h3 id="1">变量</h3>
+
+<p>已$开头命名变量</p>
+<pre><code>$default-color: #fff;
+$default-border: 1px solid $default-color;
+div {
+    color: $default-color;
+    border: $default-border;
+}
+
+//编译后
+
+div {
+    color: #fff;
+    border: 1px solid #fff;
+}</code></pre><h3 id="2">嵌套</h3>
+
+<ol>
+<li><p>可以在规则块中嵌套规则块</p>
+<pre><code>#content {
+    h1 {}
+    p {
+        span: {}
+    }
+}
+
+//编译后
+
+#content h1 {}
+#content p {}
+#content p span {}</code></pre></li>
+<li><p>父选择器标识符&amp;:当包含父选择器标识符的嵌套规则被打开时，它不会像后代选择器那样进行拼接，而是&amp;被父选择器直接替换：</p>
+<pre><code>a {
+    &amp;:hover {}
+}
+
+//编译后
+
+a {}
+a:hover {}</code></pre></li>
+<li><p>群组选择器嵌套</p>
+<pre><code>#content {
+    h1, h2, p {}
+}
+
+//编译后
+
+#content h1, #content h2, #content p {}</code></pre></li>
+<li><p>子组合选择器和同层组合选择器：&gt;、+和~</p>
+<p> 用子组合选择器&gt;选择一个元素的直接子元素</p>
+<pre><code>//选择article元素内第一个section子元素
+article &gt; section {
+    color: red;
+}</code></pre><p> 用同层相邻组合选择器+选择一个元素后紧跟的兄弟元素</p>
+<pre><code>//选择紧跟header元素后的p元素
+header + p {
+    color: red;
+}</code></pre><p> 用同层全体组合选择器~选择所有跟在一个元素后的同层元素</p>
+<pre><code>//选择全体跟article后的同层p元素
+article ~ p {
+    color: red;
+}</code></pre></li>
+<li><p>选择器嵌套</p>
+<pre><code>article {
+    ~ p {}
+    &gt; p {}
+    dl &gt; {
+        dt {}
+        dd {}
+    }
+    nav + &amp; {}
+}
+
+//编译后
+
+article ~ p {}
+article &gt; p {}
+article dl &gt; dt {}
+article dl &gt; dd {}
+nav + article {}</code></pre></li>
+<li><p>属性嵌套</p>
+<pre><code>div {
+    border: 1px solid #333 {
+        left: 0px;
+        bottom: 0px;
+    }
+}
+
+//编译后
+
+div {
+    border: 1px solid #333;
+    border-left: 0px;
+    border-bottom: 0px;
+}</code></pre></li>
+</ol>
+<h3 id="3">导入SASS文件</h3>
+
+<ol>
+<li><p>使用SASS部分文件</p>
+<p> 当通过@import把sass样式分散到多个文件时，通常只想生成少数几个css文件。那些专门为@import命令而编写的sass文件，并不需要生成对应的独立css文件，这样的sass文件称为局部文件。sass局部文件的文件名以下划线开头。这样，sass就不会在编译时单独编译这个文件输出css，而只把这个文件用作导入。@import一个局部文件时，可以省略文件名开头的下划线。</p>
+</li>
+<li><p>默认变量名</p>
+<p> 重复声明一个变量时，只有最后一处声明有效且它会覆盖前边的值。!default用于变量，含义是：如果这个变量被声明赋值了，那就用它声明的值，否则就用这个默认值。</p>
+</li>
+<li><p>嵌套导入</p>
+<p> sass允许@import命令写在css规则内。这种导入方式下，生成对应的css文件时，局部文件会被直接插入到css规则内导入它的地方。</p>
+<pre><code>//_blue-theme.sass
+aside {
+    background: blue;
+    color: white;
+}
+
+//导入到一个css规则内
+.blue-theme {
+    @import &quot;blue-theme&quot;;
+}
+
+//编译后
+.blue-them {
+    aside {
+        background: blue;
+        color: white
+    }
+}</code></pre></li>
+</ol>
+<h3 id="4">静默注释</h3>
+
+<p>sass另外提供了一种不同于css标准注释格式的注释语法，即静默注释，其内容不会出现在生成的css文件中。它们以//开头，注释内容直到行末。</p>
+<h3 id="5">混合器</h3>
+
+<p>混合器使用@mixin标识符定义。这个标识符给一大段样式赋予一个名字，这样就可以轻易地通过引用这个名字重用这段样式。然后就可以在样式表中通过@include来使用这个混合器，放在希望的任何地方。通过使用参数，可以使用混合器把样式中的通用样式抽离出来，然后轻松地在其他地方重用。实际上，混合器太好用了，一不小心可能会过度使用。大量的重用可能会导致生成的样式表过大，导致加载缓慢。</p>
+<pre><code>@mixin rounded-corners {
+    -moz-border-radius: 5px;
+    -webkit-border-radius: 5px;
+    border-radius: 5px;
+}
+
+.notice {
+    background-color: green;
+    border: 2px solid #00aa00;
+    @include rounded-corners;
+}
+
+//编译后
+.notice {
+    background-color: green;
+    border: 2px solid #00aa00;
+    -moz-border-radius: 5px;
+    -webkit-border-radius: 5px;
+    border-radius: 5px;
+}</code></pre><ol>
+<li><p>混合器的使用场景</p>
+<p> 判断一组属性是否应该组合成一个混合器，一条经验法则就是能否为这个混合器想出一个好的名字。如果能找到一个很好的短名字来描述这些属性修饰的样式，那么往往能够构造一个合适的混合器。</p>
+</li>
+<li><p>混合器中的CSS规则</p>
+<p> 混合器中不仅可以包含属性，也可以包含css规则，包含选择器和选择器中的属性，当一个包含css规则的混合器通过@include包含在一个父规则中时，在混合器中的规则最终会生成父规则中的嵌套规则。</p>
+<pre><code>@mixin no-bullets {
+    list-style: none;
+    li {
+        list-style-image: none;
+        list-style-type: none;
+        margin-left: 0px;
+    }
+}
+
+ul.plain {
+    color: #444;
+    @include no-bullets;
+}
+
+//编译后
+ul.plain {
+    color: #444;
+    list-style: none;
+}
+ul.plain li {
+    list-style-image: none;
+    list-style-type: none;
+    margin-left: 0px;
+}</code></pre></li>
+<li><p>给混合器传参</p>
+<p> 混合器并不一定总得生成相同的样式。可以通过在@include混合器时给混合器传参，来定制混合器生成的精确样式。当@include混合器时，参数其实就是可以赋值给css属性值的变量。</p>
+<pre><code>@mixin link-colors($normal, $hover, $visited) {
+    color: $normal;
+    &amp;:hover { color: $hover; }
+    &amp;:visited { color: $visited; }
+}
+
+a {
+    @include link-colors(blue, red, green);
+}
+
+//编译后
+a { color: blue; }
+a:hover { color: red; }
+a:visited { color: green; }</code></pre><p> sass允许通过语法$name: value的形式指定每个参数的值。这种形式的传参，参数顺序就不必再在乎了，只需要保证没有漏掉参数即可</p>
+<pre><code>a {
+    @include link-colors(
+        $normal: blue,
+        $visited: green,
+        $hover: red
+    )
+}</code></pre></li>
+<li><p>默认参数值</p>
+<p> 为了在@include混合器时不必传入所有的参数，可以给参数指定一个默认值。参数默认值使用$name: default-value的声明形式，默认值可以是任何有效的css属性值，甚至是其他参数的引用。</p>
+<pre><code>@mixin link-colors(
+    $normal,
+    $hover: $normal,
+    $visited: $normal
+)
+{
+    color: $normal;
+    &amp;:hover { color: $hover; }
+    &amp;:visited { color: $visited; }
+}
+
+a{
+    @include link-colors(red);
+}
+
+//编译后
+a { color: red; }
+a:hover { color: red; }
+a:visited { color: red; }</code></pre></li>
+</ol>
+
+    </div>
+
+    
+    
+    
+
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/%E5%89%8D%E7%AB%AF%E7%9F%A5%E8%AF%86/" rel="tag"># 前端知识</a>
+              <a href="/tags/css/" rel="tag"># css</a>
+          </div>
+
         
-      
-    </div>
 
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
 
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="Pr_Song">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Pr_Song's Blog">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2/" class="post-title-link" itemprop="url">markdown语法学习</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2020-07-16 09:24:39" itemprop="dateCreated datePublished" datetime="2020-07-16T09:24:39+08:00">2020-07-16</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2020-09-22 15:56:52" itemprop="dateModified" datetime="2020-09-22T15:56:52+08:00">2020-09-22</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E5%AD%A6%E4%B9%A0%E6%89%8B%E5%86%8C/" itemprop="url" rel="index"><span itemprop="name">学习手册</span></a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p>一级标题 # == h1<br>二级标题 ## == h2<br>三级标题 ### == h3<br>四级标题 #### == h4<br>五级标题 ##### == h5<br>六级标题 ###### == h6</p>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
         
-      
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2/" rel="prev" title="markdown语法学习">
+      <i class="fa fa-chevron-left"></i> markdown语法学习
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/4/" rel="next" title="es6常用又强大的新特性">
+      es6常用又强大的新特性 <i class="fa fa-chevron-right"></i>
+    </a></div>
     </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
       </footer>
+    
   </article>
   
   
   
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/1/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="Pr_Song">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Pr_Song's Blog">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/1/" class="post-title-link" itemprop="url">hexo使用指南</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2020-07-15 15:54:01" itemprop="dateCreated datePublished" datetime="2020-07-15T15:54:01+08:00">2020-07-15</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2020-09-22 15:56:46" itemprop="dateModified" datetime="2020-09-22T15:56:46+08:00">2020-09-22</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E5%AD%A6%E4%B9%A0%E6%89%8B%E5%86%8C/" itemprop="url" rel="index"><span itemprop="name">学习手册</span></a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p>hexo new “name”       # 新建文章<br>hexo new page “name”  # 新建页面<br>hexo g                # 生成页面<br>hexo d                # 部署<br>hexo g -d             # 生成页面并部署<br>hexo s                # 本地预览<br>hexo clean            # 清除缓存和已生成的静态文件<br>hexo help             # 帮助</p>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-
-  
-  <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/"><i class="fa fa-angle-left" aria-label="上一页"></i></a><a class="page-number" href="/">1</a><span class="page-number current">2</span>
-  </nav>
 
 
 
@@ -456,6 +541,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#目录"><span class="nav-number">1.</span> <span class="nav-text">目录</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1"><span class="nav-number">1.1.</span> <span class="nav-text">变量</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2"><span class="nav-number">1.2.</span> <span class="nav-text">嵌套</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3"><span class="nav-number">1.3.</span> <span class="nav-text">导入SASS文件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4"><span class="nav-number">1.4.</span> <span class="nav-text">静默注释</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#5"><span class="nav-number">1.5.</span> <span class="nav-text">混合器</span></a></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 

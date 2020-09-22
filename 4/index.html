@@ -1,0 +1,650 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 4.2.1">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"yoursite.com","root":"/","scheme":"Pisces","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
+  </script>
+
+  <meta name="description" content="目录  let 块级作用域 const 解构赋值 模板字符串 函数参数的默认值 rest 箭头函数 拓展运算符">
+<meta property="og:type" content="article">
+<meta property="og:title" content="es6常用又强大的新特性">
+<meta property="og:url" content="http://yoursite.com/4/index.html">
+<meta property="og:site_name" content="Pr_Song&#39;s Blog">
+<meta property="og:description" content="目录  let 块级作用域 const 解构赋值 模板字符串 函数参数的默认值 rest 箭头函数 拓展运算符">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2020-07-17T07:45:43.000Z">
+<meta property="article:modified_time" content="2020-09-22T07:57:09.984Z">
+<meta property="article:author" content="Pr_Song">
+<meta property="article:tag" content="前端知识">
+<meta property="article:tag" content="JavaScript">
+<meta name="twitter:card" content="summary">
+
+<link rel="canonical" href="http://yoursite.com/4/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-CN'
+  };
+</script>
+
+  <title>es6常用又强大的新特性 | Pr_Song's Blog</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">Pr_Song's Blog</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-about">
+
+    <a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a>
+
+  </li>
+  </ul>
+</nav>
+
+
+
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+  <a href="https://github.com/SongPurong" class="github-corner" title="GitHub" aria-label="GitHub" rel="noopener" target="_blank"><svg width="80" height="80" viewBox="0 0 250 250" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></a>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/4/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Pr_Song">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Pr_Song's Blog">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          es6常用又强大的新特性
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2020-07-17 15:45:43" itemprop="dateCreated datePublished" datetime="2020-07-17T15:45:43+08:00">2020-07-17</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2020-09-22 15:57:09" itemprop="dateModified" datetime="2020-09-22T15:57:09+08:00">2020-09-22</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E5%AD%A6%E4%B9%A0%E6%89%8B%E5%86%8C/" itemprop="url" rel="index"><span itemprop="name">学习手册</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <h3 id="目录"><a href="#目录" class="headerlink" title="目录"></a>目录</h3><blockquote>
+<ol>
+<li><a href="#let">let</a></li>
+<li><a href="#scoping">块级作用域</a></li>
+<li><a href="#const">const</a></li>
+<li><a href="#destructuring">解构赋值</a></li>
+<li><a href="#template-string">模板字符串</a></li>
+<li><a href="#default-parameter">函数参数的默认值</a></li>
+<li><a href="#rest">rest</a></li>
+<li><a href="#arrow-function">箭头函数</a></li>
+<li><a href="#spread">拓展运算符</a></li>
+</ol>
+</blockquote>
+<a id="more"></a>
+
+<h3 id="let"><a href="#let" class="headerlink" title="let"></a>let</h3><p>####块级变量</p>
+<p>let与var用法类似，但let声明的变量只在let命令所在的代码块内有效</p>
+<pre><code>{
+    let a = 1;
+    var b = 2;
+}
+a // ReferenceError: a is not defined
+b // 2</code></pre><p>####不存在变量提升</p>
+<p>let声明的变量不会发生变量提升，即声明前引用会报错</p>
+<pre><code>console.log(a) // ReferenceError
+let a = 1;
+
+console.log(b) // undefined
+var b = 2;</code></pre><p>####暂时性死区</p>
+<p>只要块级作用域内存在let命令，它所声明的变量就“绑定”（binding）这个区域，不再受外部的影响。如果区块中存在let和const命令，这个区块对这些命令声明的变量，从一开始就形成了封闭作用域。凡是在声明之前就使用这些变量，就会报错。</p>
+<pre><code>var tmp = 123;
+
+if (true) {
+    tmp = &apos;abc&apos;; // ReferenceError
+    let tmp;
+}</code></pre><h4 id="不允许重复声明"><a href="#不允许重复声明" class="headerlink" title="不允许重复声明"></a>不允许重复声明</h4><p>let不允许在相同作用域内，重复声明同一个变量。</p>
+<pre><code>let a;
+let a; // 报错</code></pre><h3 id="块级作用域（scoping）"><a href="#块级作用域（scoping）" class="headerlink" title="块级作用域（scoping）"></a>块级作用域（scoping）</h3><h4 id="ES6的块级作用域"><a href="#ES6的块级作用域" class="headerlink" title="ES6的块级作用域"></a>ES6的块级作用域</h4><p>let为js提供了块级作用域，外层代码不受内层代码影响，内层代码可以引用外层变量</p>
+<pre><code>{
+    let a = 1;
+    let b = 2;
+    {
+        let a = 3
+        let c = 4
+        console.log(a) // 3
+        console.log(b) // 2
+    }
+    console.log(a) // 1
+    console.log(c) // 报错
+}</code></pre><h4 id="块级作用域与函数声明"><a href="#块级作用域与函数声明" class="headerlink" title="块级作用域与函数声明"></a>块级作用域与函数声明</h4><p>ES6引入了块级作用域，明确允许在块级作用域之中声明函数。ES6规定，块级作用域之中，函数声明语句的行为类似于let，在块级作用域之外不可引用。函数声明类似于var，即会提升到全局作用域或函数作用域的头部，函数声明还会提升到所在的块级作用域的头部。</p>
+<h3 id="const"><a href="#const" class="headerlink" title="const"></a>const</h3><p>const声明一个只读的常量。一旦声明，常量的值就不能改变。const一旦声明变量，就必须立即初始化，不能留到以后赋值。const命令声明的常量也是不提升，同样存在暂时性死区，只能在声明的位置后面使用。</p>
+<pre><code>const a; // 报错
+console.log(b); // 报错
+const b = 1</code></pre><h4 id="本质"><a href="#本质" class="headerlink" title="本质"></a>本质</h4><p>const实际上保证的，并不是变量的值不得改动，而是变量指向的那个内存地址所保存的数据不得改动。对于简单类型的数据（数值、字符串、布尔值），值就保存在变量指向的那个内存地址，因此等同于常量。但对于复合类型的数据（主要是对象和数组），变量指向的内存地址，保存的只是一个指向实际数据的指针，const只能保证这个指针是固定的（即总是指向另一个固定的地址），至于它指向的数据结构是不是可变的，就完全不能控制了。因此，将一个对象声明为常量必须非常小心。</p>
+<pre><code>const a = {};
+
+a.prop = 1;
+console.log(a); // { prop: 1 }
+
+a = { prop: 1 } // 报错</code></pre><h3 id="解构赋值-Destructuring"><a href="#解构赋值-Destructuring" class="headerlink" title="解构赋值(Destructuring)"></a>解构赋值(Destructuring)</h3><h4 id="数组的解构赋值"><a href="#数组的解构赋值" class="headerlink" title="数组的解构赋值"></a>数组的解构赋值</h4><p>这种写法属于“模式匹配”，只要等号两边的模式相同，左边的变量就会被赋予对应的值。如果解构不成功，变量的值就等于undefined。另一种情况是不完全解构，即等号左边的模式，只匹配一部分的等号右边的数组。这种情况下，解构依然可以成功。</p>
+<pre><code>let [a, b, c] = [1, 2, 3];
+
+//等价于
+let a = 1;
+let b = 2;
+let c = 3;
+
+//解构不成功
+let [foo] = []; // foo = undefined
+
+//不完全解构
+let [a, b] = [1, 2, 3]; // a = 1, b = 2</code></pre><p>如果等号的右边不是数组(或者严格地说，不是可遍历的结构)，那么将会报错。</p>
+<pre><code>//报错
+let [a] = 1;
+let [a] = false;
+let [a] = NaN;
+let [a] = undefined;
+let [a] = null;
+let [a] = {};</code></pre><h4 id="对象的解构赋值"><a href="#对象的解构赋值" class="headerlink" title="对象的解构赋值"></a>对象的解构赋值</h4><p>对象的属性没有次序，变量必须与属性同名，才能取到正确的值。</p>
+<pre><code>let { a, b } = { b: 1, a: 2 } // a = 2, b = 1
+let { a } = { b: 1 } // a = undefined</code></pre><p>对象的解构赋值，可以很方便地将现有对象的方法，赋值到某个变量。</p>
+<pre><code>let { log, sin, cos } = Math; // 将Math对象的对数、正弦、余弦三个方法，赋值到对应的变量上</code></pre><h4 id="解构赋值允许指定默认值。ES6-内部使用严格相等运算符（-），判断一个位置是否有值。所以，只有当一个数组成员严格等于undefined，默认值才会生效。"><a href="#解构赋值允许指定默认值。ES6-内部使用严格相等运算符（-），判断一个位置是否有值。所以，只有当一个数组成员严格等于undefined，默认值才会生效。" class="headerlink" title="解构赋值允许指定默认值。ES6 内部使用严格相等运算符（===），判断一个位置是否有值。所以，只有当一个数组成员严格等于undefined，默认值才会生效。"></a>解构赋值允许指定默认值。ES6 内部使用严格相等运算符（===），判断一个位置是否有值。所以，只有当一个数组成员严格等于undefined，默认值才会生效。</h4><pre><code>let [a, b = 2] = [1]; // a = 1, b = 2
+let [a = 1] = [undefined]; // a = 1
+let [a = 1] = [null]; // a = null
+let { a = 1 } = {} // a = 1</code></pre><h4 id="字符串的解构赋值"><a href="#字符串的解构赋值" class="headerlink" title="字符串的解构赋值"></a>字符串的解构赋值</h4><p>字符串也可以解构赋值。这是因为此时，字符串被转换成了一个类似数组的对象。</p>
+<pre><code>let [a, b, c, d, e] = &apos;hello&apos;; // a = &apos;h&apos;, b = &apos;e&apos;, c = &apos;l&apos;, d = &apos;l&apos;, e = &apos;o&apos;</code></pre><p>类似数组的对象都有一个length属性，因此还可以对这个属性解构赋值。</p>
+<pre><code>let { length: len } = &apos;hello&apos;; // len = 5</code></pre><h4 id="用途"><a href="#用途" class="headerlink" title="用途"></a>用途</h4><ol>
+<li><p>交换变量值</p>
+<pre><code>let x = 1;
+let y = 2;
+[x, y] = [y, x];</code></pre></li>
+<li><p>取出函数返回的多个值</p>
+<pre><code>function f() {
+    return [1, 2, 3]
+}
+let [a, b, c] = f();</code></pre></li>
+<li><p>提取JSON数据</p>
+<p> <strong>解构赋值对提取 JSON 对象中的数据，尤其有用。</strong></p>
+<pre><code>let jsonData = {
+    id: 42,
+    status: &quot;OK&quot;,
+    data: [867, 5309]
+};
+
+let { id, status, data: number } = jsonData;
+
+console.log(id, status, number);// 42, &quot;OK&quot;, [867, 5309]</code></pre></li>
+<li><p>函数默认值</p>
+<p> 指定参数的默认值，就避免了在函数体内部再写var foo = config.foo || ‘default foo’;这样的语句。</p>
+<pre><code>jQuery.ajax = function (url, {
+    async = true,
+    beforeSend = function () {},
+    cache = true,
+    complete = function () {},
+    crossDomain = false,
+    global = true,
+    // ... more config
+} = {}) {
+    // ... do stuff
+};</code></pre></li>
+<li><p>输入模块的指定方法</p>
+<p> 加载模块时，往往需要指定输入哪些方法。解构赋值使得输入语句非常清晰。</p>
+<pre><code>const { SourceMapConsumer, SourceNode } = require(&quot;source-map&quot;);</code></pre></li>
+</ol>
+<h3 id="模板字符串-template-string"><a href="#模板字符串-template-string" class="headerlink" title="模板字符串(template string)"></a>模板字符串(template string)</h3><p>模板字符串（template string）是增强版的字符串，用反引号（`）标识。它可以当作普通字符串使用，也可以用来定义多行字符串，或者在字符串中嵌入变量。如果在模板字符串中需要使用反引号，则前面要用反斜杠转义。如果使用模板字符串表示多行字符串，所有的空格和缩进都会被保留在输出之中。可以使用trim方法消除首尾的换行。模板字符串中嵌入变量，需要将变量名写在${}之中。大括号内部可以放入任意的 JavaScript 表达式，可以进行运算，以及引用对象属性，还能调用函数。</p>
+<pre><code>let a = &apos;hello&apos;;
+console.log(`${ a }, es6`); // hello, es6</code></pre><h3 id="函数参数的默认值-Default-Parameter"><a href="#函数参数的默认值-Default-Parameter" class="headerlink" title="函数参数的默认值(Default Parameter)"></a>函数参数的默认值(Default Parameter)</h3><p>ES6 允许为函数的参数设置默认值，即直接写在参数定义的后面。</p>
+<pre><code>function log(x, y = &apos;World&apos;) {
+    console.log(x, y);
+}
+
+log(&apos;Hello&apos;) // Hello World
+log(&apos;Hello&apos;, &apos;China&apos;) // Hello China
+log(&apos;Hello&apos;, &apos;&apos;) // Hello</code></pre><p>参数变量是默认声明的，所以不能用let或const再次声明。使用参数默认值时，函数不能有同名参数。</p>
+<pre><code>function foo(x = 5) {
+    let x = 1; // error
+    const x = 2; // error
+}
+
+function foo(x, x, y) {} // 不报错
+function foo(x, x, y = 1) {} //报错</code></pre><p>参数默认值可以与解构赋值的默认值，结合起来使用。</p>
+<pre><code>function foo({x, y = 5}) {
+    console.log(x, y);
+}
+
+foo({}) // undefined 5
+foo({x: 1}) // 1 5
+foo({x: 1, y: 2}) // 1 2
+foo() // TypeError: Cannot read property &apos;x&apos; of undefined</code></pre><p>上面代码只使用了对象的解构赋值默认值，没有使用函数参数的默认值。只有当函数foo的参数是一个对象时，变量x和y才会通过解构赋值生成。如果函数foo调用时没提供参数，变量x和y就不会生成，从而报错。通过提供函数参数的默认值，就可以避免这种情况。</p>
+<pre><code>function foo({x, y = 5} = {}) {
+      console.log(x, y);
+}
+
+foo() // undefined 5</code></pre><p>常用于http请求封装</p>
+<pre><code>function fetch(url, { body = &apos;&apos;, method = &apos;GET&apos;, headers = {} } = {}) {
+      console.log(method);
+}
+
+fetch(&apos;http://example.com&apos;) // &quot;GET&quot;</code></pre><p>一旦设置了参数的默认值，函数进行声明初始化时，参数会形成一个单独的作用域（context）。等到初始化结束，这个作用域就会消失。这种语法行为，在不设置参数默认值时，是不会出现的。</p>
+<pre><code>let x = 1;
+
+function f(x, y = x) {
+     console.log(y);
+}
+
+f(2) // 2
+
+function f(y = x) {
+      let x = 2;
+      console.log(y);
+}
+
+f() // 1</code></pre><h3 id="rest参数"><a href="#rest参数" class="headerlink" title="rest参数"></a>rest参数</h3><p>ES6 引入 rest 参数（形式为…变量名），用于获取函数的多余参数，这样就不需要使用arguments对象了。rest 参数搭配的变量是一个<strong>数组</strong>，该变量将多余的参数放入数组中。</p>
+<pre><code>// arguments变量的写法
+function sortNumbers() {
+      return Array.prototype.slice.call(arguments).sort();
+}
+
+// rest参数的写法
+const sortNumbers = (...numbers) =&gt; numbers.sort();</code></pre><h3 id="箭头函数-Arrow-Function"><a href="#箭头函数-Arrow-Function" class="headerlink" title="箭头函数(Arrow Function)"></a>箭头函数(Arrow Function)</h3><p>ES6 允许使用“箭头”（=&gt;）定义函数。如果箭头函数不需要参数或需要多个参数，就使用一个圆括号代表参数部分。如果箭头函数的代码块部分多于一条语句，就要使用大括号将它们括起来，并且使用return语句返回。由于大括号被解释为代码块，所以如果箭头函数直接返回一个对象，必须在对象外面加上括号，否则会报错。</p>
+<pre><code>var f = v =&gt; v;
+
+// 等同于
+var f = function (v) {
+      return v;
+};
+
+// 报错
+let getTempItem = id =&gt; { id: id, name: &quot;Temp&quot; };
+
+// 不报错
+let getTempItem = id =&gt; ({ id: id, name: &quot;Temp&quot; });</code></pre><p>箭头函数有几个使用注意点。</p>
+<ol>
+<li>函数体内的this对象，就是定义时所在的对象，而不是使用时所在的对象。</li>
+<li>不可以当作构造函数，也就是不可以使用new命令。</li>
+<li>不可以使用arguments对象，可以用rest参数代替。</li>
+<li>不可以使用yield命令</li>
+</ol>
+<h3 id="扩展运算符-spread"><a href="#扩展运算符-spread" class="headerlink" title="扩展运算符(spread)"></a>扩展运算符(spread)</h3><p>扩展运算符（spread）是三个点（…）。它好比 rest 参数的逆运算，将一个数组转为用逗号分隔的参数序列。</p>
+<pre><code>console.log(...[1, 2, 3])
+// 1 2 3
+
+console.log(1, ...[2, 3, 4], 5)</code></pre><h4 id="扩展运算符的应用"><a href="#扩展运算符的应用" class="headerlink" title="扩展运算符的应用"></a>扩展运算符的应用</h4><ol>
+<li><p>复制数组</p>
+<pre><code>const a1 = [1, 2];
+// 写法一
+const a2 = [...a1];
+// 写法二
+const [...a2] = a1;</code></pre></li>
+<li><p>合并数组</p>
+<pre><code>const a1 = [1, 2];
+const a2 = [3, 4];
+[...a1, ...a2] // 1, 2, 3, 4</code></pre><p> 注意： 1， 2 方法都是浅拷贝</p>
+</li>
+<li><p>实现了Iterator接口的对象</p>
+<p> 任何定义了遍历器（Iterator）接口的对象，都可以用扩展运算符转为真正的数组。</p>
+</li>
+</ol>
+
+    </div>
+
+    
+    
+    
+
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/%E5%89%8D%E7%AB%AF%E7%9F%A5%E8%AF%86/" rel="tag"># 前端知识</a>
+              <a href="/tags/JavaScript/" rel="tag"># JavaScript</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/3/" rel="prev" title="Sass学习手册">
+      <i class="fa fa-chevron-left"></i> Sass学习手册
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/5/" rel="next" title="Vue过渡和动画">
+      Vue过渡和动画 <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#目录"><span class="nav-number">1.</span> <span class="nav-text">目录</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#let"><span class="nav-number">2.</span> <span class="nav-text">let</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#不允许重复声明"><span class="nav-number">2.1.</span> <span class="nav-text">不允许重复声明</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#块级作用域（scoping）"><span class="nav-number">3.</span> <span class="nav-text">块级作用域（scoping）</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#ES6的块级作用域"><span class="nav-number">3.1.</span> <span class="nav-text">ES6的块级作用域</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#块级作用域与函数声明"><span class="nav-number">3.2.</span> <span class="nav-text">块级作用域与函数声明</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#const"><span class="nav-number">4.</span> <span class="nav-text">const</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#本质"><span class="nav-number">4.1.</span> <span class="nav-text">本质</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#解构赋值-Destructuring"><span class="nav-number">5.</span> <span class="nav-text">解构赋值(Destructuring)</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#数组的解构赋值"><span class="nav-number">5.1.</span> <span class="nav-text">数组的解构赋值</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#对象的解构赋值"><span class="nav-number">5.2.</span> <span class="nav-text">对象的解构赋值</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#解构赋值允许指定默认值。ES6-内部使用严格相等运算符（-），判断一个位置是否有值。所以，只有当一个数组成员严格等于undefined，默认值才会生效。"><span class="nav-number">5.3.</span> <span class="nav-text">解构赋值允许指定默认值。ES6 内部使用严格相等运算符（&#x3D;&#x3D;&#x3D;），判断一个位置是否有值。所以，只有当一个数组成员严格等于undefined，默认值才会生效。</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#字符串的解构赋值"><span class="nav-number">5.4.</span> <span class="nav-text">字符串的解构赋值</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#用途"><span class="nav-number">5.5.</span> <span class="nav-text">用途</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#模板字符串-template-string"><span class="nav-number">6.</span> <span class="nav-text">模板字符串(template string)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#函数参数的默认值-Default-Parameter"><span class="nav-number">7.</span> <span class="nav-text">函数参数的默认值(Default Parameter)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#rest参数"><span class="nav-number">8.</span> <span class="nav-text">rest参数</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#箭头函数-Arrow-Function"><span class="nav-number">9.</span> <span class="nav-text">箭头函数(Arrow Function)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#扩展运算符-spread"><span class="nav-number">10.</span> <span class="nav-text">扩展运算符(spread)</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#扩展运算符的应用"><span class="nav-number">10.1.</span> <span class="nav-text">扩展运算符的应用</span></a></li></ol></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">Pr_Song</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">13</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">2</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">11</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+        <a href="https://github.com/SongPurong" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;SongPurong" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:those-happy-memo@foxmail.com" title="E-Mail → mailto:those-happy-memo@foxmail.com" rel="noopener" target="_blank"><i class="fa fa-envelope fa-fw"></i>E-Mail</a>
+      </span>
+  </div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2020</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Pr_Song</span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://pisces.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Pisces</a> 强力驱动
+  </div>
+
+        
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/pisces.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"log":false,"pluginJsPath":"lib/","pluginModelPath":"assets/","pluginRootPath":"live2dw/","tagMode":false});</script></body>
+</html>
