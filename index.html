@@ -162,7 +162,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/ckjv9b50s0008hkvcdhoxg40a/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/ckkl7zu3m0003o41j12lm7d0u/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -176,7 +176,126 @@
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
           
-            <a href="/ckjv9b50s0008hkvcdhoxg40a/" class="post-title-link" itemprop="url">JavaScript数组操作小技巧</a>
+            <a href="/ckkl7zu3m0003o41j12lm7d0u/" class="post-title-link" itemprop="url">SPA、SSR和SEO</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2021-01-27 15:27:24 / 修改时间：16:30:42" itemprop="dateCreated datePublished" datetime="2021-01-27T15:27:24+08:00">2021-01-27</time>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h3 id="SPA、SEO和SSR"><a href="#SPA、SEO和SSR" class="headerlink" title="SPA、SEO和SSR"></a>SPA、SEO和SSR</h3><h4 id="前后端分离"><a href="#前后端分离" class="headerlink" title="前后端分离"></a>前后端分离</h4><p>前后端根据AJAX接口进行数据的交互，目前常见的是后端直接将数据以JSON的格式返回给前端，前端根据后端服务器返回的数据，操作DOM。</p>
+<h5 id="优点："><a href="#优点：" class="headerlink" title="优点："></a>优点：</h5><ul>
+<li>分工明确，各司其职，前端专注页面设计，后端专注业务逻辑和数据处理。</li>
+<li>接口明确，并行开发，接口实现前前端可以自行模拟接口，例如通过node.js的koa、express等web框架模拟</li>
+<li>解耦，提高开发效率，减少前后端沟通成本</li>
+</ul>
+<h4 id="SPA"><a href="#SPA" class="headerlink" title="SPA"></a>SPA</h4><p>SPA（single page application），单页面应用。在SPA中，切换到新的页面，只需要重写页面中发生变化的部分，而不用重新加载一整个页面。常见的SPA框架有：<a href="https://angularjs.org/" target="_blank" rel="noopener">AngularJS</a>、<a href="https://reactjs.org/" target="_blank" rel="noopener">React</a>和<a href="https://vuejs.org/" target="_blank" rel="noopener">Vue.js</a>。</p>
+<h5 id="优点：-1"><a href="#优点：-1" class="headerlink" title="优点："></a>优点：</h5><ul>
+<li>页面之间的切换非常快</li>
+<li>一定程度上减少了后端服务器的压力（不用管页面逻辑和渲染）</li>
+<li>后端程序只需要提供API，完全不用管客户端到底是Web界面还是手机等</li>
+</ul>
+<h5 id="缺点："><a href="#缺点：" class="headerlink" title="缺点："></a>缺点：</h5><ul>
+<li>首屏打开速度很慢，因为用户首次加载需要先下载SPA框架及应用程序的代码，然后再渲染页面。</li>
+<li>不利于SEO</li>
+</ul>
+<h4 id="SEO"><a href="#SEO" class="headerlink" title="SEO"></a>SEO</h4><p>SEO（Search Engine Optimization），搜索引擎优化。SEO是一种通过了解搜索引擎的运作规则（如何抓取网站页面，如何索引以及如何根据特定的关键字展现搜索结果排序等）来调整网站，以提高该网站在搜索引擎中某些关键词的搜索结果排名。</p>
+<h5 id="常用技术（白帽技术）："><a href="#常用技术（白帽技术）：" class="headerlink" title="常用技术（白帽技术）："></a>常用技术（白帽技术）：</h5><ul>
+<li><p>在每页使用一个短、独特和相关的标题。</p>
+</li>
+<li><p>编辑网页，用与该页的主题。有关的具体术语替换隐晦的字眼。这有助于该站诉求的观众群，在搜索引擎上搜索而被正确导引至该站。</p>
+</li>
+<li><p>在该站点增加相当数量的原创内容。</p>
+</li>
+<li><p>使用合理大小、准确描述的汇标，而不过度使用关键字、惊叹号、或不相关标题术语。</p>
+</li>
+<li><p>注意网址字眼，有助于搜索引擎优化。</p>
+</li>
+</ul>
+<p>标题： 即HTML的 <code>&lt;title&gt;&lt;/title&gt;</code> 标签</p>
+<p>描述： 即HTML<code>&lt;meta&gt;</code>标签的<code>description</code>，例如</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">meta</span> <span class="attr">name</span>=<span class="string">"description"</span> <span class="attr">content</span>=<span class="string">"通常所说的META标签，是在HTML网页源代码中一个重要的html标签。META标签用来描述一个HTML网页文档的属性，例如作者、日期和时间、网页描述、关键词、页面刷新等。..."</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>关键字： 即HTML<code>&lt;meta&gt;</code>标签的<code>keywords</code>， 例如</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">meta</span> <span class="attr">name</span>=<span class="string">"keywords"</span> <span class="attr">content</span>=<span class="string">"META标签 META标签作用 META标签组成 META标签属性 META标签描述设计 META标签错误 META标签标签"</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<h4 id="SPA和SEO的冲突"><a href="#SPA和SEO的冲突" class="headerlink" title="SPA和SEO的冲突"></a>SPA和SEO的冲突</h4><p>就目前而言，部分搜索引擎如Google、bing等，它们的爬虫虽然已经支持执行JS甚至是通过AJAX获取数据了，但是对于异步数据的支持也还不足(也可能是搜索引擎提供商觉得没必要)，<a href="https://links.jianshu.com/go?to=https%3A%2F%2Fssr.vuejs.org%2Fzh%2F" target="_blank" rel="noopener">Vue SSR</a>中是这样说的</p>
+<blockquote>
+<p>如果你的应用程序初始展示 loading 菊花图，然后通过 Ajax 获取内容，抓取工具并不会等待异步完成后再行抓取页面内容。</p>
+</blockquote>
+<p>SPA应用中，通常通过AJAX获取数据，而这里就难以保证我们的页面能被搜索引擎正常收录到。并有一些搜索引擎不支持执行JS和通过AJAX获取数据，那就更不用提SEO了。<br>但对于有些网站而言，SEO显得至关重要，例如主要以内容输出为主的<a href="https://links.jianshu.com/go?to=https%3A%2F%2Fwww.quora.com%2F" target="_blank" rel="noopener">Quora</a>、<a href="https://links.jianshu.com/go?to=https%3A%2F%2Fstackoverflow.com%2F" target="_blank" rel="noopener">stackoverflow</a>、<a href="https://links.jianshu.com/go?to=https%3A%2F%2Fwww.zhihu.com%2F" target="_blank" rel="noopener">知乎</a>和<a href="https://links.jianshu.com/go?to=https%3A%2F%2Fwww.douban.com%2F" target="_blank" rel="noopener">豆瓣</a>等等。</p>
+<h4 id="SSR"><a href="#SSR" class="headerlink" title="SSR"></a>SSR</h4><p>SSR（Server-Side Rendering），服务器端渲染。在普通的SPA中，一般是将框架及网站页面代码发送到浏览器，然后在浏览器中生成和操作DOM（这里也是第一次访问SPA网站在同等带宽及网络延迟下比传统的在后端生成HTML发送到浏览器要更慢的主要原因），但其实也可以将SPA应用打包到服务器上，在服务器上渲染出HTML，发送到浏览器，这样的HTML页面还不具备交互能力，所以还需要与SPA框架配合，在浏览器上“混合”成可交互的应用程序。所以，只要能合理地运用SSR技术，不仅能一定程度上解决首屏慢的问题，还能获得更好的SEO。</p>
+<h5 id="优点：-2"><a href="#优点：-2" class="headerlink" title="优点："></a>优点：</h5><ul>
+<li><p>更快的响应时间，不用等待所有的JS都下载完成，浏览器便能显示比较完整的页面了。</p>
+</li>
+<li><p>可以将SEO的关键信息直接在后台就渲染成HTML，而保证搜索引擎的爬虫都能爬取到关键数据。</p>
+</li>
+</ul>
+<h5 id="缺点：-1"><a href="#缺点：-1" class="headerlink" title="缺点："></a>缺点：</h5><ul>
+<li>占用服务器更多的CPU和内存</li>
+<li>一些常用的浏览器API可能无法正常使用，比如<code>window</code>、<code>docment</code>和<code>alert</code>等，如果使用的话需要对运行的环境加以判断</li>
+<li>开发调试会有一些麻烦，因为涉及了浏览器及服务器，对于SPA的一些组件的生命周期的管理会变得复杂</li>
+<li>可能会由于某些因素导致服务器端渲染的结果与浏览器端的结果不一致</li>
+</ul>
+<h5 id="常用框架"><a href="#常用框架" class="headerlink" title="常用框架"></a>常用框架</h5><ul>
+<li>React 的 <a href="https://links.jianshu.com/go?to=https%3A%2F%2Fnextjs.org%2F" target="_blank" rel="noopener">Next</a></li>
+<li>Vue.js 的 <a href="https://links.jianshu.com/go?to=https%3A%2F%2Fnuxtjs.org%2F" target="_blank" rel="noopener">Nuxt</a></li>
+</ul>
+<h4 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h4><ol>
+<li><a href="https://www.jianshu.com/p/fcb98533bc18" target="_blank" rel="noopener">浅谈SPA、SEO、SSR</a></li>
+</ol>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/ckkl7zu3q0006o41j2men0myy/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Pr_Song">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Pr_Song's Blog">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/ckkl7zu3q0006o41j2men0myy/" class="post-title-link" itemprop="url">JavaScript数组操作小技巧</a>
         </h2>
 
         <div class="post-meta">
@@ -217,7 +336,7 @@
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> a = [<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">1</span>,<span class="number">2</span>];</span><br><span class="line"><span class="comment">// Array.from()</span></span><br><span class="line"><span class="keyword">let</span> b = <span class="built_in">Array</span>.from(<span class="keyword">new</span> <span class="built_in">Set</span>(a));</span><br><span class="line"><span class="comment">// 拓展运算符...</span></span><br><span class="line"><span class="keyword">let</span> c = [...new <span class="built_in">Set</span>(a)];</span><br></pre></td></tr></table></figure>
           <!--noindex-->
             <div class="post-button">
-              <a class="btn" href="/ckjv9b50s0008hkvcdhoxg40a/#more" rel="contents">
+              <a class="btn" href="/ckkl7zu3q0006o41j2men0myy/#more" rel="contents">
                 阅读全文 &raquo;
               </a>
             </div>
@@ -241,7 +360,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/ckjv9b50p0004hkvcftkl5ae9/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/ckkl7zu3o0004o41je5iz18tu/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -255,7 +374,7 @@
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
           
-            <a href="/ckjv9b50p0004hkvcftkl5ae9/" class="post-title-link" itemprop="url">Blob、File和FileReader</a>
+            <a href="/ckkl7zu3o0004o41je5iz18tu/" class="post-title-link" itemprop="url">Blob、File和FileReader</a>
         </h2>
 
         <div class="post-meta">
@@ -293,7 +412,7 @@
 <p>Blob的全称是<code>binary large object</code>，表示二进制大对象。简单来说，Blob就是一个只读的二进制文件，我们可以知道它的文件大小（size），文件类型（type），并可以对其作出分割（slice）。</p>
           <!--noindex-->
             <div class="post-button">
-              <a class="btn" href="/ckjv9b50p0004hkvcftkl5ae9/#more" rel="contents">
+              <a class="btn" href="/ckkl7zu3o0004o41je5iz18tu/#more" rel="contents">
                 阅读全文 &raquo;
               </a>
             </div>
@@ -894,99 +1013,6 @@
   
   
 
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/5/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="Pr_Song">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Pr_Song's Blog">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/5/" class="post-title-link" itemprop="url">Vue过渡和动画</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2020-07-23 10:05:41" itemprop="dateCreated datePublished" datetime="2020-07-23T10:05:41+08:00">2020-07-23</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2020-09-22 15:57:20" itemprop="dateModified" datetime="2020-09-22T15:57:20+08:00">2020-09-22</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E5%AD%A6%E4%B9%A0%E6%89%8B%E5%86%8C/" itemprop="url" rel="index"><span itemprop="name">学习手册</span></a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p>Vue 提供了 transition 的封装组件，在下列情形中，可以给任何元素和组件添加进入/离开过渡</p>
-<ul>
-<li>条件渲染 (使用 v-if)</li>
-<li>条件展示 (使用 v-show)</li>
-<li>动态组件</li>
-<li>组件根节点</li>
-</ul>
-<p>当插入或删除包含在 transition 组件中的元素时，Vue 将会做以下处理：</p>
-<ol>
-<li>自动嗅探目标元素是否应用了 CSS 过渡或动画，如果是，在恰当的时机添加/删除 CSS 类名。</li>
-<li>如果过渡组件提供了 JavaScript 钩子函数，这些钩子函数将在恰当的时机被调用。</li>
-<li>如果没有找到 JavaScript 钩子并且也没有检测到 CSS 过渡/动画，DOM 操作 (插入/删除) 在下一帧中立即执行。</li>
-</ol>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/5/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
 
   
   <nav class="pagination">
@@ -1056,7 +1082,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">14</span>
+          <span class="site-state-item-count">15</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
