@@ -23,22 +23,22 @@
   <meta name="description" content="koa2框架Koa 应用程序是一个包含一组中间件函数的对象，它是按照类似堆栈的方式组织和执行的（洋葱模型 如图）。Koa 并没有捆绑任何中间件， 而是提供了一套优雅的方法，帮助您快速而愉快地编写服务端应用程序（渐进式 类似vue）。">
 <meta property="og:type" content="article">
 <meta property="og:title" content="koa2框架及中间件">
-<meta property="og:url" content="http://yoursite.com/ckpzaaoxq000jd41jc055ejlt/index.html">
+<meta property="og:url" content="http://yoursite.com/ckpzaqst3000s4c1j4yoxgjcq/index.html">
 <meta property="og:site_name" content="Pr_Song&#39;s Blog">
 <meta property="og:description" content="koa2框架Koa 应用程序是一个包含一组中间件函数的对象，它是按照类似堆栈的方式组织和执行的（洋葱模型 如图）。Koa 并没有捆绑任何中间件， 而是提供了一套优雅的方法，帮助您快速而愉快地编写服务端应用程序（渐进式 类似vue）。">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="http://yoursite.com/ckpzaaoxq000jd41jc055ejlt/1.png">
-<meta property="og:image" content="http://yoursite.com/ckpzaaoxq000jd41jc055ejlt/2.png">
-<meta property="og:image" content="http://yoursite.com/ckpzaaoxq000jd41jc055ejlt/3.png">
+<meta property="og:image" content="http://yoursite.com/ckpzaqst3000s4c1j4yoxgjcq/1.png">
+<meta property="og:image" content="http://yoursite.com/ckpzaqst3000s4c1j4yoxgjcq/2.png">
+<meta property="og:image" content="http://yoursite.com/ckpzaqst3000s4c1j4yoxgjcq/3.png">
 <meta property="article:published_time" content="2021-04-13T02:11:49.000Z">
 <meta property="article:modified_time" content="2021-04-25T06:41:41.327Z">
 <meta property="article:author" content="Pr_Song">
 <meta property="article:tag" content="node">
 <meta property="article:tag" content="koa2">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="http://yoursite.com/ckpzaaoxq000jd41jc055ejlt/1.png">
+<meta name="twitter:image" content="http://yoursite.com/ckpzaqst3000s4c1j4yoxgjcq/1.png">
 
-<link rel="canonical" href="http://yoursite.com/ckpzaaoxq000jd41jc055ejlt/">
+<link rel="canonical" href="http://yoursite.com/ckpzaqst3000s4c1j4yoxgjcq/">
 
 
 <script id="page-configurations">
@@ -173,7 +173,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/ckpzaaoxq000jd41jc055ejlt/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/ckpzaqst3000s4c1j4yoxgjcq/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -227,7 +227,7 @@
 
       
         <h3 id="koa2框架"><a href="#koa2框架" class="headerlink" title="koa2框架"></a>koa2框架</h3><p>Koa 应用程序是一个包含一组中间件函数的对象，它是按照类似堆栈的方式组织和执行的（洋葱模型 如图）。Koa 并没有捆绑任何中间件， 而是提供了一套优雅的方法，帮助您快速而愉快地编写服务端应用程序（渐进式 类似vue）。</p>
-<img src="/ckpzaaoxq000jd41jc055ejlt/1.png" class="" title="图1">
+<img src="/ckpzaqst3000s4c1j4yoxgjcq/1.png" class="" title="图1">
 
 <a id="more"></a>
 
@@ -250,10 +250,10 @@
 
 <h4 id="koa-json"><a href="#koa-json" class="headerlink" title="koa-json"></a>koa-json</h4><p>美化返回的json对象响应格式</p>
 <p>未使用</p>
-<img src="/ckpzaaoxq000jd41jc055ejlt/2.png" class="" title="图2">
+<img src="/ckpzaqst3000s4c1j4yoxgjcq/2.png" class="" title="图2">
 
 <p>使用后</p>
-<img src="/ckpzaaoxq000jd41jc055ejlt/3.png" class="" title="图3">
+<img src="/ckpzaqst3000s4c1j4yoxgjcq/3.png" class="" title="图3">
 
 <h4 id="koa-onerror"><a href="#koa-onerror" class="headerlink" title="koa-onerror"></a>koa-onerror</h4><p>koa-onerror 可以在服务器产生错误（throw 抛出等）后自动重定向到指定路径</p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> onerror = <span class="built_in">require</span>(<span class="string">'koa-onerror'</span>);</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> onerrorConf = &#123;</span><br><span class="line">    redirect: <span class="string">'/error'</span> <span class="comment">//重定向到error</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">onerror(app, onerrorConf); <span class="comment">//使用onerror</span></span><br></pre></td></tr></table></figure>
@@ -283,11 +283,11 @@
         
     <div class="post-nav">
       <div class="post-nav-item">
-    <a href="/ckpzaaoxv000wd41j213n6ib4/" rel="prev" title="常用正则表达式">
+    <a href="/ckpzaqst8001c4c1j9ksv1e4f/" rel="prev" title="常用正则表达式">
       <i class="fa fa-chevron-left"></i> 常用正则表达式
     </a></div>
       <div class="post-nav-item">
-    <a href="/ckpzaaoxy001ed41jbztwavy6/" rel="next" title="消息队列">
+    <a href="/ckpzaqstb001r4c1j8smbhdpc/" rel="next" title="消息队列">
       消息队列 <i class="fa fa-chevron-right"></i>
     </a></div>
     </div>
