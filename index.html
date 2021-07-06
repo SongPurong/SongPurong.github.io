@@ -162,7 +162,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/ckpzaqstb001r4c1j8smbhdpc/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/ckqrx009y0007641jhay5ga1d/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -176,7 +176,565 @@
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
           
-            <a href="/ckpzaqstb001r4c1j8smbhdpc/" class="post-title-link" itemprop="url">消息队列</a>
+            <a href="/ckqrx009y0007641jhay5ga1d/" class="post-title-link" itemprop="url">Less进阶</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2021-07-03 19:11:28" itemprop="dateCreated datePublished" datetime="2021-07-03T19:11:28+08:00">2021-07-03</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2021-07-06 18:22:14" itemprop="dateModified" datetime="2021-07-06T18:22:14+08:00">2021-07-06</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E5%AD%A6%E4%B9%A0%E6%89%8B%E5%86%8C/" itemprop="url" rel="index"><span itemprop="name">学习手册</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h3 id="Less进阶"><a href="#Less进阶" class="headerlink" title="Less进阶"></a>Less进阶</h3><h4 id="变量-Variables"><a href="#变量-Variables" class="headerlink" title="变量(Variables)"></a>变量(Variables)</h4><p>用单一的变量控制常用的值，增加代码可读性，便于复用和维护。（例如控制项目的主、次色调，主、次字体，背景，边距留白，阴影，圆角，边框，常用动画等等）</p>
+<h5 id="定义属性"><a href="#定义属性" class="headerlink" title="定义属性"></a>定义属性</h5><figure class="highlight less"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">@--primary-color:</span> red;</span><br><span class="line"><span class="selector-class">.box</span> &#123;</span><br><span class="line">	<span class="attribute">color</span>: <span class="variable">@--primary-color</span>; <span class="comment">// =&gt; color: red;</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h5 id="定义选择器"><a href="#定义选择器" class="headerlink" title="定义选择器"></a>定义选择器</h5><figure class="highlight less"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">@--common-selector:</span> container;</span><br><span class="line">.(<span class="variable">@--common-selector</span>) &#123;  <span class="comment">// =&gt; .container &#123;</span></span><br><span class="line">	<span class="attribute">margin</span>: <span class="number">10px</span>;</span><br><span class="line">	<span class="attribute">padding</span>: <span class="number">10px</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h5 id="定义URL"><a href="#定义URL" class="headerlink" title="定义URL"></a>定义URL</h5><figure class="highlight less"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">@--image-base-url:</span> <span class="string">'./assets/images/'</span>;</span><br><span class="line"><span class="selector-class">.box</span> &#123;</span><br><span class="line">    <span class="attribute">background-image</span>: url(<span class="string">'@&#123;--image-base-url&#125;background-image.png'</span>);</span><br><span class="line">    <span class="comment">// =&gt; background-image: url('./assets/images/background-image.png')</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="variable">@--themes-base-url:</span> <span class="string">'../../style/themes/'</span>;</span><br><span class="line"><span class="keyword">@import</span> <span class="string">'@&#123;--themes-base-url&#125;common-table.less'</span>;</span><br></pre></td></tr></table></figure>
+
+<h5 id="定义属性-1"><a href="#定义属性-1" class="headerlink" title="定义属性"></a>定义属性</h5><figure class="highlight less"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">@property:</span> color;</span><br><span class="line"><span class="selector-class">.box</span> &#123;</span><br><span class="line">	<span class="attribute">@&#123;property&#125;</span>: red; <span class="comment">// =&gt; color: red;</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h5 id="定义变量"><a href="#定义变量" class="headerlink" title="定义变量"></a>定义变量</h5><figure class="highlight less"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">@primary-color:</span> red;</span><br><span class="line"><span class="selector-class">.box</span> &#123;</span><br><span class="line">	<span class="variable">@box-color:</span> primary-color;</span><br><span class="line">	<span class="attribute">color</span>: <span class="variable">@@box-color</span>; <span class="comment">// =&gt; color: red;</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h5 id="惰性计算"><a href="#惰性计算" class="headerlink" title="惰性计算"></a>惰性计算</h5><figure class="highlight less"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 变量不一定要在使用前定义</span></span><br><span class="line"><span class="selector-class">.box</span> &#123;</span><br><span class="line">	<span class="attribute">width</span>: <span class="variable">@define-width</span>; <span class="comment">// =&gt; width: 10px;</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="variable">@define-width:</span> <span class="number">10px</span>;</span><br><span class="line"><span class="comment">// 重复定义取后面定义的</span></span><br><span class="line"><span class="selector-class">.box</span> &#123;</span><br><span class="line">    <span class="variable">@define-width:</span> <span class="number">10px</span>;</span><br><span class="line">	<span class="attribute">width</span>: <span class="variable">@define-width</span>; <span class="comment">// =&gt; width: 100px</span></span><br><span class="line">    <span class="variable">@define-width:</span> <span class="number">100px</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h5 id="属性作为变量"><a href="#属性作为变量" class="headerlink" title="属性作为变量"></a>属性作为变量</h5><figure class="highlight less"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 可以直接将属性视为变量，重复的属性也是取后面的</span></span><br><span class="line"><span class="selector-class">.box</span> &#123;</span><br><span class="line">	<span class="attribute">width</span>: <span class="number">10px</span>;</span><br><span class="line">	height: $width; // =&gt; height: 100px;</span><br><span class="line">    <span class="attribute">width</span>: <span class="number">100px</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h5 id="变量覆盖"><a href="#变量覆盖" class="headerlink" title="变量覆盖"></a>变量覆盖</h5><figure class="highlight less"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// common.less</span></span><br><span class="line"><span class="variable">@base-color:</span> green;</span><br><span class="line"><span class="variable">@dark-color:</span> darken(<span class="variable">@base-color</span>, <span class="number">10%</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">// used.less</span></span><br><span class="line"><span class="keyword">@import</span> <span class="string">'common.less'</span>;</span><br><span class="line"><span class="variable">@base-color:</span> red;</span><br><span class="line"><span class="selector-class">.box</span> &#123;</span><br><span class="line">	<span class="attribute">background-color</span>: <span class="variable">@dark-color</span>; <span class="comment">// =&gt; 深红色	</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h4 id="父级选择器-amp"><a href="#父级选择器-amp" class="headerlink" title="父级选择器(&amp;)"></a>父级选择器(&amp;)</h4><h5 id="简单的复用"><a href="#简单的复用" class="headerlink" title="简单的复用"></a>简单的复用</h5><figure class="highlight less"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 就是把&amp;替换成父级选择器名就好了</span></span><br><span class="line"><span class="selector-class">.box</span> &#123;</span><br><span class="line">	<span class="selector-tag">&amp;</span><span class="selector-pseudo">::after</span> &#123;&#125; <span class="comment">// .box::after &#123;&#125;</span></span><br><span class="line">	<span class="selector-tag">&amp;</span><span class="selector-tag">-ball</span> &#123;&#125; <span class="comment">//.box-ball &#123;&#125;</span></span><br><span class="line">    <span class="selector-tag">&amp;</span></span><br><span class="line">	<span class="selector-tag">&amp;</span> + <span class="selector-tag">&amp;</span><span class="selector-tag">-near</span> &#123;&#125; <span class="comment">// .box + .box-near &#123;&#125;</span></span><br><span class="line">	<span class="selector-tag">&amp;</span> <span class="selector-tag">&amp;</span><span class="selector-tag">-red</span> &#123;&#125; <span class="comment">// .box .box-red &#123;&#125;</span></span><br><span class="line">	<span class="selector-tag">&amp;</span><span class="selector-tag">&amp;</span><span class="selector-tag">-red</span> &#123;&#125; <span class="comment">// .box.box-red &#123;&#125;</span></span><br><span class="line">	<span class="selector-tag">&amp;</span>, <span class="selector-tag">&amp;</span><span class="selector-tag">red</span> &#123;&#125; <span class="comment">// .box, .box-red &#123;&#125;</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// 值得注意的是&amp;取的不只是上一级</span></span><br><span class="line"><span class="selector-class">.prarent</span> &#123;</span><br><span class="line">    <span class="selector-class">.box</span> &#123;</span><br><span class="line">        <span class="selector-tag">&amp;</span><span class="selector-tag">-red</span> &#123;</span><br><span class="line">            <span class="attribute">background-color</span>: red;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// 编译为</span></span><br><span class="line"><span class="selector-class">.parent</span> <span class="selector-class">.box-red</span> &#123;</span><br><span class="line">	<span class="attribute">background-color</span>: red;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//注意两种写法是不一样的</span></span><br><span class="line"><span class="selector-class">.box</span> &#123;</span><br><span class="line">    <span class="selector-class">.box-red</span> &#123;&#125; <span class="comment">// =&gt; .box .box-red &#123;&#125;</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-class">.box</span> &#123;</span><br><span class="line">    <span class="selector-tag">&amp;</span><span class="selector-tag">-red</span> &#123;&#125; <span class="comment">// =&gt; .box-red &#123;&#125;</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h5 id="变更选择器顺序"><a href="#变更选择器顺序" class="headerlink" title="变更选择器顺序"></a>变更选择器顺序</h5><figure class="highlight less"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.child</span> &#123;</span><br><span class="line">	<span class="selector-class">.parent</span> <span class="selector-tag">&amp;</span> &#123;&#125; <span class="comment">// =&gt; .parent .child &#123;&#125;</span></span><br><span class="line"> &#125;</span><br></pre></td></tr></table></figure>
+
+<h5 id="组合计算"><a href="#组合计算" class="headerlink" title="组合计算"></a>组合计算</h5><figure class="highlight less"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">div</span>, <span class="selector-tag">span</span> &#123;</span><br><span class="line">	<span class="selector-tag">&amp;</span> + <span class="selector-tag">&amp;</span> &#123;&#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// 编译后</span></span><br><span class="line"><span class="selector-tag">div</span> + <span class="selector-tag">div</span>,</span><br><span class="line"><span class="selector-tag">div</span> + <span class="selector-tag">span</span>,</span><br><span class="line"><span class="selector-tag">span</span> + <span class="selector-tag">div</span>,</span><br><span class="line"><span class="selector-tag">span</span> + <span class="selector-tag">span</span> &#123;&#125;</span><br></pre></td></tr></table></figure>
+
+<h4 id="拓展-extend"><a href="#拓展-extend" class="headerlink" title="拓展(extend)"></a>拓展(extend)</h4><p>类似面向对现象的继承，定义基础类，然后进行拓展。</p>
+<h5 id="简单的拓展"><a href="#简单的拓展" class="headerlink" title="简单的拓展"></a>简单的拓展</h5><figure class="highlight less"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.a</span> &#123;</span><br><span class="line">	<span class="selector-tag">&amp;</span><span class="selector-pseudo">:extend(.b)</span> <span class="comment">// =&gt; .a:extend(.b)&#123;&#125;</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h5 id="拓展的使用规则"><a href="#拓展的使用规则" class="headerlink" title="拓展的使用规则"></a>拓展的使用规则</h5><figure class="highlight less"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 放在选择器后，包括伪类等，但必须放在最后</span></span><br><span class="line"><span class="selector-class">.a</span><span class="selector-pseudo">:extend(.box)</span></span><br><span class="line"><span class="selector-class">.a</span><span class="selector-pseudo">:hover</span><span class="selector-pseudo">:extend(.box)</span> <span class="comment">// === .a:hover :extend(.box) 允许有空格隔开</span></span><br><span class="line"><span class="selector-class">.a</span><span class="selector-pseudo">:extend(.box)</span><span class="selector-pseudo">:hover</span> <span class="comment">// error！</span></span><br><span class="line"><span class="comment">// 可以叠加</span></span><br><span class="line"><span class="selector-class">.a</span><span class="selector-pseudo">:extend(.box)</span><span class="selector-pseudo">:extend(.red)</span> <span class="comment">// === .a:extend(.box, .red)</span></span><br><span class="line"><span class="selector-class">.a</span>, <span class="selector-class">.b</span><span class="selector-pseudo">:extend(.box)</span>, <span class="selector-class">.c</span><span class="selector-pseudo">:extend(.red)</span> &#123;&#125;</span><br></pre></td></tr></table></figure>
+
+<h5 id="less中对共同拓展的简写"><a href="#less中对共同拓展的简写" class="headerlink" title="less中对共同拓展的简写"></a>less中对共同拓展的简写</h5><figure class="highlight less"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.a</span>, <span class="selector-class">.b</span>, <span class="selector-class">.c</span> &#123;</span><br><span class="line">	<span class="selector-tag">&amp;</span><span class="selector-pseudo">:extend(.d)</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-class">.d</span> &#123;</span><br><span class="line">	<span class="attribute">font-size</span>: <span class="number">16px</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// 编译为</span></span><br><span class="line"><span class="selector-class">.a</span>, <span class="selector-class">.b</span>, <span class="selector-class">.c</span>, <span class="selector-class">.d</span> &#123;</span><br><span class="line">	<span class="attribute">font-size</span>: <span class="number">16px</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// 常规不用less的写法</span></span><br><span class="line"><span class="selector-class">.a</span><span class="selector-pseudo">:extend(.d)</span> &#123;&#125;</span><br><span class="line"><span class="selector-class">.b</span><span class="selector-pseudo">:extend(.d)</span> &#123;&#125;</span><br><span class="line"><span class="selector-class">.c</span><span class="selector-pseudo">:extend(.d)</span> &#123;&#125;</span><br></pre></td></tr></table></figure>
+
+<h5 id="精准匹配"><a href="#精准匹配" class="headerlink" title="精准匹配"></a>精准匹配</h5><figure class="highlight less"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 需要具有相同的形式才能匹配</span></span><br><span class="line"><span class="selector-class">.a</span><span class="selector-class">.b</span>, <span class="selector-class">.b</span><span class="selector-class">.a</span>, <span class="selector-class">.a</span> &gt; <span class="selector-class">.b</span> &#123;&#125;  <span class="comment">// .a:extend(.b) &#123;&#125;无法匹配以上几种</span></span><br><span class="line"><span class="comment">// 伪类的顺序也要一致</span></span><br><span class="line"><span class="attribute">a</span>:<span class="attribute">hover</span>:visited &#123;&#125; <span class="comment">// link:extend(a:visited:hover)无法匹配</span></span><br><span class="line"><span class="comment">// nth-child中的格式也要一致</span></span><br><span class="line"><span class="selector-class">.a</span><span class="selector-pseudo">:nth-child(n</span> + <span class="selector-tag">1</span>) &#123;&#125;</span><br><span class="line"><span class="selector-class">.b</span><span class="selector-pseudo">:extend(.a</span><span class="selector-pseudo">:nth-child(1n</span> + <span class="selector-tag">1</span>)) &#123;&#125; <span class="comment">// 无法匹配</span></span><br><span class="line"><span class="selector-class">.b</span><span class="selector-pseudo">:extend(.a</span><span class="selector-pseudo">:nth-child(n</span> + <span class="selector-tag">1</span>)) &#123;&#125; <span class="comment">// 可以匹配</span></span><br><span class="line"><span class="comment">// 属性选择器例外</span></span><br><span class="line"><span class="selector-attr">[title=hello]</span> &#123;&#125;</span><br><span class="line"><span class="selector-attr">[title='hello']</span> &#123;&#125;</span><br><span class="line"><span class="selector-attr">[title="hello"]</span> &#123;&#125;</span><br><span class="line"><span class="selector-class">.a</span><span class="selector-pseudo">:extend(</span><span class="selector-attr">[title=hello]</span>) &#123;&#125; <span class="comment">// 三个都匹配</span></span><br><span class="line"><span class="comment">// 全匹配，使用all关键字作为最后参数时，less会匹配所有包含该选择器</span></span><br><span class="line"><span class="selector-class">.a</span><span class="selector-class">.b</span>,<span class="selector-class">.c</span><span class="selector-class">.a</span> &#123;&#125;</span><br><span class="line"><span class="selector-class">.a</span><span class="selector-pseudo">:hover</span> &#123;&#125;</span><br><span class="line"><span class="selector-class">.test</span><span class="selector-pseudo">:extend(.a</span> <span class="keyword">all</span>) &#123;&#125;</span><br><span class="line"><span class="comment">// 编译后</span></span><br><span class="line"><span class="selector-class">.a</span><span class="selector-class">.b</span>, <span class="selector-class">.c</span><span class="selector-class">.a</span>, <span class="selector-class">.test</span><span class="selector-class">.b</span>, <span class="selector-class">.c</span><span class="selector-class">.test</span> &#123;&#125;</span><br><span class="line"><span class="selector-class">.a</span><span class="selector-pseudo">:hover</span>, <span class="selector-class">.test</span><span class="selector-pseudo">:hover</span> &#123;&#125;</span><br><span class="line"><span class="comment">// 无法将选择器和变量匹配</span></span><br><span class="line"><span class="variable">@var:</span> .a;</span><br><span class="line"><span class="variable">@&#123;var&#125;</span> &#123;&#125;</span><br><span class="line"><span class="selector-class">.b</span><span class="selector-pseudo">:extend(.a)</span> &#123;&#125; <span class="comment">// 无法匹配</span></span><br><span class="line"><span class="comment">// 反过来也一样</span></span><br><span class="line"><span class="variable">@var:</span> .a;</span><br><span class="line"><span class="selector-class">.a</span> &#123;&#125;</span><br><span class="line"><span class="selector-class">.b</span><span class="selector-pseudo">:extend(</span><span class="variable">@&#123;var&#125;</span>) &#123;&#125;</span><br><span class="line"><span class="comment">// 媒体查询@media中，进匹配同一规则集中的拓展</span></span><br><span class="line"><span class="keyword">@media</span> print &#123;</span><br><span class="line">    <span class="selector-class">.a</span><span class="selector-pseudo">:extend(.b)</span> &#123;&#125; <span class="comment">// extend inside media</span></span><br><span class="line">    <span class="selector-class">.b</span> &#123;&#125; <span class="comment">// this will be matched - it is in the same media</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-class">.b</span> &#123;&#125; <span class="comment">// ruleset on top of style sheet - extend ignores it</span></span><br><span class="line"><span class="keyword">@media</span> screen &#123;</span><br><span class="line">    <span class="selector-class">.b</span> &#123;&#125; <span class="comment">// ruleset inside another media - extend ignores it</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h4 id="混合-Mixin"><a href="#混合-Mixin" class="headerlink" title="混合(Mixin)"></a>混合(Mixin)</h4><h5 id="基本使用"><a href="#基本使用" class="headerlink" title="基本使用"></a>基本使用</h5><figure class="highlight less"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.a</span> &#123;&#125;</span><br><span class="line"><span class="selector-class">.b</span> &#123;</span><br><span class="line">	<span class="selector-class">.a</span>();</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// 使用namespace</span></span><br><span class="line"><span class="selector-class">.a</span>() &#123;&#125; <span class="comment">// 编译后将不会有.a</span></span><br><span class="line"><span class="selector-class">.b</span> &#123;</span><br><span class="line">    <span class="selector-class">.a</span>();</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// 带条件的namespace</span></span><br><span class="line"><span class="selector-class">.a</span> <span class="keyword">when</span> (<span class="variable">@condition</span> = hello) &#123;&#125;</span><br><span class="line"><span class="comment">// !important关键字</span></span><br><span class="line"><span class="selector-class">.a</span> &#123;</span><br><span class="line">    <span class="attribute">color</span>: red;</span><br><span class="line">    <span class="attribute">background-color</span>: green;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-class">.b</span> &#123;</span><br><span class="line">    <span class="selector-class">.a</span>() !important;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// 编译后</span></span><br><span class="line"><span class="selector-class">.b</span> &#123;</span><br><span class="line">    <span class="attribute">color</span>: red <span class="meta">!important</span>;</span><br><span class="line">    <span class="attribute">background-color</span>: green <span class="meta">!important</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h5 id="带参数的mixin"><a href="#带参数的mixin" class="headerlink" title="带参数的mixin"></a>带参数的mixin</h5><h6 id="基础用法"><a href="#基础用法" class="headerlink" title="基础用法"></a>基础用法</h6><figure class="highlight less"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.border-radius</span>(<span class="variable">@radius</span>) &#123;</span><br><span class="line">    <span class="attribute">border-radius</span>: <span class="variable">@radius</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-class">.card</span> &#123;</span><br><span class="line">	<span class="selector-class">.border-radius</span>(<span class="number">4px</span>); <span class="comment">// border-radius: 4px;</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h6 id="有默认值的参数"><a href="#有默认值的参数" class="headerlink" title="有默认值的参数"></a>有默认值的参数</h6><figure class="highlight less"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.border-radius</span>(<span class="variable">@radius</span>: <span class="number">5px</span>) &#123;</span><br><span class="line">    <span class="attribute">border-radius</span>: <span class="variable">@radius</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-class">.card</span> &#123;</span><br><span class="line">    <span class="selector-class">.border-radius</span>(); <span class="comment">// border-radius: 5px;</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h6 id="重复mixin会叠加，无效的mixin会被忽略"><a href="#重复mixin会叠加，无效的mixin会被忽略" class="headerlink" title="重复mixin会叠加，无效的mixin会被忽略"></a>重复mixin会叠加，无效的mixin会被忽略</h6><figure class="highlight less"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.a</span>(<span class="variable">@color</span>) &#123;</span><br><span class="line">  <span class="attribute">color-1</span>: <span class="variable">@color</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-class">.a</span>(<span class="variable">@color</span>; <span class="variable">@padding</span>: <span class="number">2px</span>) &#123;</span><br><span class="line">  <span class="attribute">color-2</span>: <span class="variable">@color</span>;</span><br><span class="line">  <span class="attribute">padding-2</span>: <span class="variable">@padding</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-class">.a</span>(<span class="variable">@color</span>; <span class="variable">@padding</span>) &#123;</span><br><span class="line">  <span class="attribute">color-3</span>: <span class="variable">@color</span>;</span><br><span class="line">  <span class="attribute">padding-3</span>: <span class="variable">@padding</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-class">.b</span> &#123;</span><br><span class="line">  <span class="selector-class">.a</span>(red);</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// 编译后</span></span><br><span class="line"><span class="selector-class">.b</span> &#123;</span><br><span class="line">    <span class="attribute">color-1</span>: red;</span><br><span class="line">    <span class="attribute">color-2</span>: red;</span><br><span class="line">    <span class="attribute">padding-2</span>: <span class="number">2px</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h6 id="指定参数赋值"><a href="#指定参数赋值" class="headerlink" title="指定参数赋值"></a>指定参数赋值</h6><figure class="highlight less"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.a</span>(<span class="variable">@color</span>: red; <span class="variable">@margin</span>: <span class="number">10px</span>, <span class="variable">@padding</span>: <span class="number">10px</span>) &#123;</span><br><span class="line">    <span class="attribute">color</span>: <span class="variable">@color</span>;</span><br><span class="line">    <span class="attribute">margin</span>: <span class="variable">@margin</span>;</span><br><span class="line">    <span class="attribute">padding</span>: <span class="variable">@padding</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-class">.b</span> &#123;</span><br><span class="line">    <span class="selector-class">.a</span>(<span class="variable">@margin</span>: <span class="number">2px</span>);</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-class">.c</span> &#123;</span><br><span class="line">	<span class="selector-class">.a</span>(green; <span class="variable">@padding</span>: <span class="number">2px</span>);</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// 编译后</span></span><br><span class="line"><span class="selector-class">.b</span> &#123;</span><br><span class="line">    <span class="attribute">color</span>: red;</span><br><span class="line">    <span class="attribute">margin</span>: <span class="number">2px</span>;</span><br><span class="line">    <span class="attribute">padding</span>: <span class="number">10px</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-class">.c</span> &#123;</span><br><span class="line">	<span class="attribute">color</span>: green;</span><br><span class="line">    <span class="attribute">margin</span>: <span class="number">10px</span>;</span><br><span class="line">    <span class="attribute">padding</span>: <span class="number">2px</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h6 id="arguments参数"><a href="#arguments参数" class="headerlink" title="@arguments参数"></a>@arguments参数</h6><figure class="highlight less"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.margin</span>(<span class="variable">@top</span>: <span class="number">10px</span>; <span class="variable">@right</span>: <span class="number">10px</span>; <span class="variable">@bottom</span>: <span class="number">10px</span>; <span class="variable">@left</span>: <span class="number">10px</span>) &#123;</span><br><span class="line">	<span class="attribute">margin</span>: <span class="variable">@arguments</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-class">.a</span> &#123;</span><br><span class="line">	<span class="selector-class">.margin</span>(<span class="number">2px</span>; <span class="number">5px</span>); <span class="comment">// margin: 2px 5px 10px 10px;</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h6 id="rest参数"><a href="#rest参数" class="headerlink" title="@rest参数"></a>@rest参数</h6><figure class="highlight less"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.mixin</span>(<span class="variable">@margin</span>: <span class="number">10px</span>; <span class="variable">@rest</span>...) &#123;</span><br><span class="line">	<span class="attribute">margin</span>: <span class="variable">@margin</span>;</span><br><span class="line">	<span class="attribute">border</span>: <span class="variable">@rest</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-class">.a</span> &#123;</span><br><span class="line">	<span class="selector-class">.mixin</span>(<span class="number">2px</span>; <span class="number">1px</span>; solid; red);</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// 编译后</span></span><br><span class="line"><span class="selector-class">.a</span> &#123;</span><br><span class="line">    <span class="attribute">margin</span>: <span class="number">2px</span>;</span><br><span class="line">    <span class="attribute">border</span>: <span class="number">1px</span> solid red;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h6 id="当作函数"><a href="#当作函数" class="headerlink" title="当作函数"></a>当作函数</h6><figure class="highlight less"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.func</span>(<span class="variable">@x</span>, <span class="variable">@y</span>) &#123;</span><br><span class="line">    <span class="variable">@add:</span> <span class="variable">@x</span> + <span class="variable">@y</span></span><br><span class="line">    <span class="variable">@subtract</span>: <span class="variable">@y</span> -<span class="variable">@x</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-class">.a</span> &#123;</span><br><span class="line">    <span class="attribute">width</span>: .func(<span class="number">10px</span>, <span class="number">20px</span>)[<span class="variable">@add</span>]; <span class="comment">// width: 30px;</span></span><br><span class="line">    <span class="attribute">height</span>: .func(<span class="number">10px</span>, <span class="number">20px</span>)[<span class="variable">@subtract</span>]; <span class="comment">// height: 10px;</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// 没有指定取值时</span></span><br><span class="line"><span class="selector-class">.a</span> &#123;</span><br><span class="line">    <span class="attribute">padding</span>: func(<span class="number">10px</span>, <span class="number">20px</span>)[]; <span class="comment">// padding: 10px; 取最后计算值@subtract</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h6 id="递归使用"><a href="#递归使用" class="headerlink" title="递归使用"></a>递归使用</h6><figure class="highlight less"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 输出属性</span></span><br><span class="line"><span class="selector-class">.loop</span>(<span class="variable">@counter</span>) <span class="keyword">when</span> (<span class="variable">@counter</span> &gt; <span class="number">0</span>) &#123;</span><br><span class="line">	<span class="selector-class">.loop</span>(<span class="variable">@counter</span> - <span class="number">1</span>);</span><br><span class="line">	<span class="attribute">width</span>: <span class="number">10px</span> * <span class="variable">@counter</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-class">.a</span> &#123;</span><br><span class="line">	<span class="selector-class">.loop</span>(<span class="number">5</span>);</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// 输出选择器</span></span><br><span class="line"><span class="selector-class">.generator</span>(<span class="variable">@n</span>; <span class="variable">@i</span>: <span class="number">1</span>) <span class="keyword">when</span> (<span class="variable">@i</span> =&lt; <span class="variable">@n</span>) &#123;</span><br><span class="line">    <span class="selector-class">.section-</span><span class="variable">@&#123;i&#125;</span> &#123;</span><br><span class="line">        <span class="attribute">width</span>: <span class="variable">@i</span> * <span class="number">100%</span> / <span class="variable">@n</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="selector-class">.generator</span>(<span class="variable">@n</span>; <span class="variable">@i</span>: <span class="variable">@i</span> + <span class="number">1</span>);</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-class">.generator</span>(<span class="number">4</span>);</span><br><span class="line"><span class="comment">// 编译后</span></span><br><span class="line"><span class="selector-class">.section-1</span> &#123;</span><br><span class="line">    <span class="attribute">width</span>: <span class="number">25%</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-class">.section-2</span> &#123;</span><br><span class="line">    <span class="attribute">width</span>: <span class="number">50%</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-class">.section-3</span> &#123;</span><br><span class="line">    <span class="attribute">width</span>: <span class="number">75%</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-class">.section-4</span> &#123;</span><br><span class="line">    <span class="attribute">width</span>: <span class="number">100%</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h6 id="逻辑操作符"><a href="#逻辑操作符" class="headerlink" title="逻辑操作符"></a>逻辑操作符</h6><figure class="highlight less"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// and</span></span><br><span class="line"><span class="selector-class">.mixin</span>(<span class="variable">@a</span>) <span class="keyword">when</span> (<span class="variable">@a</span> &gt; <span class="number">10px</span>) <span class="keyword">and</span> (<span class="variable">@a</span> &lt; <span class="number">20px</span>) &#123;</span><br><span class="line">    <span class="attribute">width</span>: <span class="variable">@a</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-class">.a</span> &#123;</span><br><span class="line">	<span class="selector-class">.mixin</span>(<span class="number">12px</span>); <span class="comment">// width: 12px;</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// not</span></span><br><span class="line"><span class="selector-class">.mixin</span>(<span class="variable">@a</span>) <span class="keyword">when</span> <span class="keyword">not</span> (<span class="variable">@a</span> &lt; <span class="number">10px</span>) &#123;</span><br><span class="line">    <span class="attribute">width</span>: <span class="variable">@a</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-class">.a</span> &#123;</span><br><span class="line">    <span class="selector-class">.mixin</span>(<span class="number">12px</span>); <span class="comment">// width: 12px;</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// 类型检查</span></span><br><span class="line"><span class="selector-tag">iscolor</span></span><br><span class="line"><span class="selector-tag">isnumber</span></span><br><span class="line"><span class="selector-tag">isstring</span></span><br><span class="line"><span class="selector-tag">iskeyword</span></span><br><span class="line"><span class="selector-tag">isurl</span></span><br><span class="line"><span class="comment">// 数字中的单位检查</span></span><br><span class="line"><span class="selector-tag">ispixel</span></span><br><span class="line"><span class="selector-tag">ispercentage</span></span><br><span class="line"><span class="selector-tag">isem</span></span><br><span class="line"><span class="selector-tag">isunit</span></span><br></pre></td></tr></table></figure>
+
+<h4 id="映射-Maps"><a href="#映射-Maps" class="headerlink" title="映射(Maps)"></a>映射(Maps)</h4><h5 id="基础用法-1"><a href="#基础用法-1" class="headerlink" title="基础用法"></a>基础用法</h5><figure class="highlight less"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 两种类型的定义</span></span><br><span class="line"><span class="variable">@map:</span> &#123;</span><br><span class="line">	<span class="attribute">mobile</span>: <span class="number">320px</span>;</span><br><span class="line">    <span class="attribute">tablet</span>: <span class="number">768px</span>;</span><br><span class="line">    <span class="attribute">desktop</span>: <span class="number">1024px</span>;</span><br><span class="line">&#125;</span><br><span class="line">.map() &#123;</span><br><span class="line">    ...</span><br><span class="line">&#125;</span><br><span class="line">#map() &#123;</span><br><span class="line">    ...</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// 使用</span></span><br><span class="line">.a &#123;</span><br><span class="line">	<span class="keyword">@media</span> (<span class="attribute">min-width</span>: <span class="variable">@map</span>[mobile]) &#123;</span><br><span class="line">		<span class="attribute">display</span>: block;</span><br><span class="line">	&#125;</span><br><span class="line">    <span class="variable">@tablet</span>: .map[tablet];</span><br><span class="line">	<span class="keyword">@media</span> (<span class="attribute">min-width</span>: <span class="variable">@tablet</span>) &#123;</span><br><span class="line">		<span class="attribute">display</span>: inline-block;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h5 id="多级map"><a href="#多级map" class="headerlink" title="多级map"></a>多级map</h5><figure class="highlight less"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">@a:</span> &#123;</span><br><span class="line">	<span class="variable">@b:</span> &#123;</span><br><span class="line">		<span class="attribute">c</span>: <span class="number">12px</span>;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line">.d &#123;</span><br><span class="line">    <span class="attribute">width</span>: <span class="variable">@a</span>[<span class="variable">@b</span>][c];</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h5 id="使用变量索引"><a href="#使用变量索引" class="headerlink" title="使用变量索引"></a>使用变量索引</h5><figure class="highlight less"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.a</span>() &#123;</span><br><span class="line">	<span class="variable">@b:</span> <span class="number">12px</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="variable">@c:</span> b;</span><br><span class="line"><span class="selector-class">.d</span> &#123;</span><br><span class="line">	<span class="attribute">width</span>: .a[<span class="variable">@@c</span>];</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/ckqrx00ab000q641j4nf048ua/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Pr_Song">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Pr_Song's Blog">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/ckqrx00ab000q641j4nf048ua/" class="post-title-link" itemprop="url">Less函数</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2021-06-30 17:22:13" itemprop="dateCreated datePublished" datetime="2021-06-30T17:22:13+08:00">2021-06-30</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2021-07-01 15:06:10" itemprop="dateModified" datetime="2021-07-01T15:06:10+08:00">2021-07-01</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E5%AD%A6%E4%B9%A0%E6%89%8B%E5%86%8C/" itemprop="url" rel="index"><span itemprop="name">学习手册</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h3 id="一、杂项函数"><a href="#一、杂项函数" class="headerlink" title="一、杂项函数"></a><strong>一、杂项函数</strong></h3><h5 id="color"><a href="#color" class="headerlink" title="color"></a><strong>color</strong></h5><blockquote>
+<p>解析颜色，将代表颜色的字符串转换为颜色值.</p>
+</blockquote>
+<ul>
+<li><code>string</code>： 代表颜色值的字符串。<br> 返回值： <code>color</code><br> 案例：  <code>color(&quot;#aaa&quot;);</code><br> 输出： <code>#aaa</code></li>
+</ul>
+<h5 id="convert"><a href="#convert" class="headerlink" title="convert"></a><strong>convert</strong></h5><blockquote>
+<p>将数字从一种单位转换到另一种单位。<br> 第一个参数为带单位的数值，第二个参数为单位。如果两个参数的单位是兼容的，则数字的单位被转换。如果两个参数的单位不兼容，则原样返回第一个参数。</p>
+</blockquote>
+<p>兼容的单位：</p>
+<ul>
+<li>长度： <code>m</code>, <code>cm</code>, <code>mm</code>, <code>in</code>, <code>pt</code> and <code>pc</code>,</li>
+<li>时间： <code>s</code> and <code>ms</code>,</li>
+<li>角度： <code>rad</code>, <code>deg</code>, <code>grad</code> and <code>turn</code>.</li>
+</ul>
+<p>案例：</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">convert(<span class="number">9</span>s, <span class="string">"ms"</span>)</span><br><span class="line">convert(<span class="number">14</span>cm, mm)</span><br><span class="line">convert(<span class="number">8</span>, mm) <span class="comment">// 不兼容的单位类型</span></span><br></pre></td></tr></table></figure>
+
+<p>输出：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">9000ms</span><br><span class="line">140mm</span><br><span class="line">8</span><br></pre></td></tr></table></figure>
+
+<h5 id="data-uri"><a href="#data-uri" class="headerlink" title="data-uri"></a><strong>data-uri</strong></h5><blockquote>
+<p>将资源内联进样式表，如果开启了 ieCompat 选项并且资源太大，或者此函数的运行环境为浏览器，则会回退到直接使用 url() 。如果没有指定 MIME，则 node 将使用 mime 包来决定正确的 mime 类型。</p>
+</blockquote>
+<ul>
+<li><code>mimetype</code>: (可选) MIME 字符串。</li>
+<li><code>url</code>: 需要内嵌的文件的 URL 。<br> 案例： <code>data-uri(&#39;../data/image.jpg&#39;);</code><br> 输出： <code>url(&#39;data:image/jpeg;base64,bm90IGFjdHVhbGx5IGEganBlZyBmaWxlCg==&#39;);</code><br> 浏览器端输出： <code>url(&#39;../data/image.jpg&#39;);</code><br> 案例： <code>data-uri(&#39;image/jpeg;base64&#39;, &#39;../data/image.jpg&#39;);</code><br> 输出： <code>url(&#39;data:image/jpeg;base64,bm90IGFjdHVhbGx5IGEganBlZyBmaWxlCg==&#39;);</code></li>
+</ul>
+<h5 id="unit"><a href="#unit" class="headerlink" title="unit"></a><strong>unit</strong></h5><blockquote>
+<p>删除或更换单位。</p>
+</blockquote>
+<ul>
+<li><code>dimension</code>: 带单位或不带单位的数字。</li>
+<li><code>unit</code>: (可选) 目标单位，如果省略此参数，则删除单位。<br> 案例： <code>unit(5, px)</code><br> 输出： <code>5px</code><br> 案例： <code>unit(5em)</code><br> 输出： <code>5</code></li>
+</ul>
+<h3 id="二、字符串函数"><a href="#二、字符串函数" class="headerlink" title="二、字符串函数"></a><strong>二、字符串函数</strong></h3><h5 id="escape"><a href="#escape" class="headerlink" title="escape"></a><strong>escape</strong></h5><blockquote>
+<p>对字符串中的特殊字符做 <a href="https://links.jianshu.com/go?to=http%3A%2F%2Fen.wikipedia.org%2Fwiki%2FPercent-encoding" target="_blank" rel="noopener">URL-encoding</a> 编码</p>
+</blockquote>
+<ul>
+<li>这些字符不会被编码：<code>,</code>, <code>/</code>, <code>?</code>, <code>@</code>, <code>&amp;</code>, <code>+</code>, <code>&#39;</code>, <code>~</code>, <code>!</code> and <code>$</code>。</li>
+<li>被编码的字符是：<code>\&lt;space\&gt;</code>, <code>#</code>, <code>^</code>, <code>(</code>, <code>)</code>, <code>{</code>, <code>}</code>, <code>|</code>, <code>:</code>, <code>&gt;</code>, <code>&lt;</code>, <code>;</code>, <code>]</code>, <code>[</code> and <code>=</code>。<br> 参数：<code>string</code>: 需要转义的字符串。<br> 返回值：转义后不带引号的 <code>string</code> 字符串。<br> 案例：<code>escape(&#39;a=1&#39;)</code><br> 输出： <code>a%3D1</code></li>
+</ul>
+<h5 id="格式化"><a href="#格式化" class="headerlink" title="% 格式化"></a><strong>% 格式化</strong></h5><blockquote>
+<p>此函数 %(string, arguments …) 用于格式化字符串。</p>
+</blockquote>
+<p>第一个参数是一个包含占位符的字符串。占位符以百分号 <code>%</code> 开头，后面跟着字母 <code>s</code>、<code>S</code>、<code>d</code>、<code>D</code>、<code>a</code> 或 <code>A</code>。后续的参数用于替换这些占位符。如果你需要输出百分号，可以多用一个百分号来转义 <code>%%</code>。<br> 使用大写的占位符可以将特殊字符按照 UTF-8 编码进行转义。 此函数将会对所有的特殊字符进行转义，除了 <code>()&#39;~!</code>。空格会被转义为 <code>%20</code> 。小写的占位符将原样输出特殊字符，不进行转义。</p>
+<p>占位符说明：<br> <code>d</code>, <code>D</code>, <code>a</code>, <code>A</code> - 以被任意类型的参数替换 (颜色、数字、转义后的字符串、表达式等)。如果将它们和字符串一起使用，则整个字符串都会被使用，包括引号。然而，引号将会按原样放在字符串中，不会用 “/“ 或类似的方式转义。<br> <code>s</code>, <code>S</code> - 可以被除了颜色的之外的任何类型参数替换。如果你将它们和字符串一起使用，则只有字符串的值会被使用，引号会被忽略。</p>
+<p>参数：<br> <code>string</code>: 有占位符的格式化字符串。<br> <code>anything*</code> : 用于替换占位符的值。<br> 返回值： 格式化后的 <code>字符串（string）</code>.</p>
+<p>案例：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">format<span class="_">-a</span><span class="_">-d</span>: %(<span class="string">"repetitions: %a file: %d"</span>, 1 + 2, <span class="string">"directory/file.less"</span>);</span><br><span class="line">format<span class="_">-a</span><span class="_">-d</span>-upper: %(<span class="string">'repetitions: %A file: %D'</span>, 1 + 2, <span class="string">"directory/file.less"</span>);</span><br><span class="line">format<span class="_">-s</span>: %(<span class="string">"repetitions: %s file: %s"</span>, 1 + 2, <span class="string">"directory/file.less"</span>);</span><br><span class="line">format<span class="_">-s</span>-upper: %(<span class="string">'repetitions: %S file: %S'</span>, 1 + 2, <span class="string">"directory/file.less"</span>);</span><br></pre></td></tr></table></figure>
+
+<p>输出：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">format<span class="_">-a</span><span class="_">-d</span>: <span class="string">"repetitions: 3 file: "</span>directory/file.less<span class="string">""</span>;</span><br><span class="line">format<span class="_">-a</span><span class="_">-d</span>-upper: <span class="string">"repetitions: 3 file: %22directory%2Ffile.less%22"</span>;</span><br><span class="line">format<span class="_">-s</span>: <span class="string">"repetitions: 3 file: directory/file.less"</span>;</span><br><span class="line">format<span class="_">-s</span>-upper: <span class="string">"repetitions: 3 file: directory%2Ffile.less"</span>;</span><br></pre></td></tr></table></figure>
+
+<h5 id="replace"><a href="#replace" class="headerlink" title="replace"></a><strong>replace</strong></h5><blockquote>
+<p>用一个字符串替换一段文本。</p>
+</blockquote>
+<ul>
+<li><code>string</code>: 用于搜索、替换操作的字符串。</li>
+<li><code>pattern</code>: 用于搜索匹配的字符串或正则表达式。</li>
+<li><code>replacement</code>: 用于替换匹配项的字符串。</li>
+<li><code>flags</code>: (可选) 正则表达式参数。<br> 案例：</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">replace(<span class="string">"Hello, Mars?"</span>, <span class="string">"Mars\?"</span>, <span class="string">"Earth!"</span>);</span><br><span class="line">replace(<span class="string">"One + one = 4"</span>, <span class="string">"one"</span>, <span class="string">"2"</span>, <span class="string">"gi"</span>);</span><br><span class="line">replace(<span class="string">'This is a string.'</span>, <span class="string">"(string)\.$"</span>, <span class="string">"new <span class="variable">$1</span>."</span>);</span><br><span class="line">replace(~<span class="string">"bar-1"</span>, <span class="string">'1'</span>, <span class="string">'2'</span>);</span><br></pre></td></tr></table></figure>
+
+<p>输出：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">"Hello, Earth!"</span>;</span><br><span class="line"><span class="string">"2 + 2 = 4"</span>;</span><br><span class="line"><span class="string">'This is a new string.'</span>;</span><br><span class="line">bar-2;</span><br></pre></td></tr></table></figure>
+
+<h3 id="三、列表函数"><a href="#三、列表函数" class="headerlink" title="三、列表函数"></a><strong>三、列表函数</strong></h3><h5 id="length"><a href="#length" class="headerlink" title="length"></a><strong>length</strong></h5><blockquote>
+<p>返回列表中元素的个数。</p>
+</blockquote>
+<ul>
+<li>list - 由逗号或空格分隔的元素列表。<br> 返回值：一个代表元素个数的数字。<br> 案例： <code>length(1px solid #0080ff);</code><br> 输出：<code>3</code><br> 案例：</li>
+</ul>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">@<span class="built_in">list</span>: <span class="string">"banana"</span>, <span class="string">"tomato"</span>, <span class="string">"potato"</span>, <span class="string">"peach"</span>;</span><br><span class="line">n: length(@<span class="built_in">list</span>);</span><br></pre></td></tr></table></figure>
+
+<p>输出：<code>n: 4;</code></p>
+<h5 id="extract"><a href="#extract" class="headerlink" title="extract"></a><strong>extract</strong></h5><blockquote>
+<p>返回列表中指定位置的元素。</p>
+</blockquote>
+<ul>
+<li>list - 逗号或空格分隔的元素列表。</li>
+<li>index - 指定列表中元素位置的数字。<br> 返回值：列表中指定位置的元素。<br> 案例： <code>extract(8px dotted red, 2);</code><br> 输出： <code>dotted</code><br> 案例：</li>
+</ul>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">@<span class="built_in">list</span>: apple, pear, coconut, orange;</span><br><span class="line">value: extract(@<span class="built_in">list</span>, <span class="number">3</span>);</span><br></pre></td></tr></table></figure>
+
+<p>输出：<code>value: coconut;</code></p>
+<h3 id="四、数学函数"><a href="#四、数学函数" class="headerlink" title="四、数学函数"></a><strong>四、数学函数</strong></h3><h5 id="ceil"><a href="#ceil" class="headerlink" title="ceil"></a><strong>ceil</strong></h5><blockquote>
+<p>向上取整。</p>
+</blockquote>
+<p>参数： <code>number</code> - 浮点数。<br> 返回值： <code>整数（integer）</code><br> 案例： <code>ceil(2.4)</code><br> 输出： <code>3</code></p>
+<h5 id="floor"><a href="#floor" class="headerlink" title="floor"></a><strong>floor</strong></h5><blockquote>
+<p>向下取整。</p>
+</blockquote>
+<p>参数： <code>number</code> - 浮点数。<br> 返回值： <code>整数（integer）</code><br> 案例： <code>ceil(2.4)</code><br> 输出： <code>2</code></p>
+<h5 id="percentage"><a href="#percentage" class="headerlink" title="percentage"></a><strong>percentage</strong></h5><blockquote>
+<p>将浮点数转换为百分比字符串。</p>
+</blockquote>
+<p>参数： <code>number</code> - 浮点数。<br> 返回值： <code>字符串（string）</code><br> 案例： <code>percentage(0.5)</code><br> 输出： <code>50%</code></p>
+<h5 id="round"><a href="#round" class="headerlink" title="round"></a><strong>round</strong></h5><blockquote>
+<p>四舍五入取整。</p>
+</blockquote>
+<p>参数：</p>
+<ul>
+<li><code>number</code> - 浮点数。</li>
+<li><code>decimalPlaces</code>: 可选：四舍五入取整的小数点位置。默认值为0。<br> 返回值： 数字（number）<br> 案例： <code>round(1.67)</code><br> 输出： <code>2</code><br> 案例： <code>round(1.67, 1)</code><br> 输出： <code>1.7</code></li>
+</ul>
+<h5 id="sqrt"><a href="#sqrt" class="headerlink" title="sqrt"></a><strong>sqrt</strong></h5><blockquote>
+<p>计算一个数的平方根，并原样保持单位。</p>
+</blockquote>
+<p>参数： <code>number</code> - 浮点数。<br> 返回值： <code>数字（number）</code><br> 案例： <code>sqrt(25cm)</code><br> 输出： <code>5cm</code></p>
+<h5 id="abs"><a href="#abs" class="headerlink" title="abs"></a><strong>abs</strong></h5><blockquote>
+<p>计算数字的绝对值，并原样保持单位。</p>
+</blockquote>
+<h5 id="pow"><a href="#pow" class="headerlink" title="pow"></a><strong>pow</strong></h5><blockquote>
+<p>设第一个参数为A，第二个参数为B，返回A的B次方。<br> 返回值与第一个参数有相同的单位，第二个参数的单位被忽略。</p>
+</blockquote>
+<p>参数：</p>
+<ul>
+<li><code>number</code>: base -浮点数。</li>
+<li><code>number</code>: exponent - 浮点数。<br> 返回值： <code>数字（number）</code><br> 案例：</li>
+</ul>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">pow</span>(<span class="number">0</span>cm, <span class="number">0</span>px)</span><br><span class="line"><span class="built_in">pow</span>(<span class="number">25</span>, <span class="number">-2</span>)</span><br><span class="line"><span class="built_in">pow</span>(<span class="number">25</span>, <span class="number">0.5</span>)</span><br><span class="line"><span class="built_in">pow</span>(<span class="number">-25</span>, <span class="number">0.5</span>)</span><br><span class="line"><span class="built_in">pow</span>(<span class="number">-25</span>%, <span class="number">-0.5</span>)</span><br></pre></td></tr></table></figure>
+
+<p>输出：</p>
+<figure class="highlight jsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">1</span>cm</span><br><span class="line"><span class="number">0.0016</span></span><br><span class="line"><span class="number">5</span></span><br><span class="line"><span class="literal">NaN</span></span><br><span class="line"><span class="literal">NaN</span>%</span><br></pre></td></tr></table></figure>
+
+<h5 id="mod"><a href="#mod" class="headerlink" title="mod"></a><strong>mod</strong></h5><blockquote>
+<p>返回第一个参数对第二参数取余的结果。<br> 返回值与第一个参数单位相同，第二个参数单位被忽略。这个函数也可以处理负数和浮点数。</p>
+</blockquote>
+<p>参数：</p>
+<ul>
+<li><code>number</code>: 浮点数。</li>
+<li><code>number</code>: 浮点数。<br> 返回值： <code>数字（number）</code><br> 案例：</li>
+</ul>
+<figure class="highlight rust"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">mod</span>(<span class="number">0</span>cm, <span class="number">0</span>px)</span><br><span class="line"><span class="keyword">mod</span>(<span class="number">11</span>cm, <span class="number">6</span>px);</span><br><span class="line"><span class="keyword">mod</span>(-<span class="number">26</span>%, -<span class="number">5</span>);</span><br></pre></td></tr></table></figure>
+
+<p>输出：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">NaNcm;</span><br><span class="line">5cm</span><br><span class="line">-1%;</span><br></pre></td></tr></table></figure>
+
+<h5 id="min-max"><a href="#min-max" class="headerlink" title="min/max"></a><strong>min/max</strong></h5><blockquote>
+<p>返回一系列值中最小/最大的那个。</p>
+</blockquote>
+<p>参数：<code>value1, ..., valueN</code> - 一个或多个参与比较的值。<br> 返回值： <code>最小值/最大值</code></p>
+<h5 id="三角函数（sin、asin、cos、acos、tan、atan、pi）"><a href="#三角函数（sin、asin、cos、acos、tan、atan、pi）" class="headerlink" title="三角函数（sin、asin、cos、acos、tan、atan、pi）"></a><strong>三角函数（sin、asin、cos、acos、tan、atan、pi）</strong></h5><h3 id="五、类型函数"><a href="#五、类型函数" class="headerlink" title="五、类型函数"></a><strong>五、类型函数</strong></h3><h5 id="isnumber-isstring-iscolor-iskeyword-isurl-ispixel-ispercentage-isem-、isunit"><a href="#isnumber-isstring-iscolor-iskeyword-isurl-ispixel-ispercentage-isem-、isunit" class="headerlink" title="isnumber / isstring / iscolor / iskeyword / isurl / ispixel / ispercentage / isem 、isunit"></a><strong>isnumber / isstring / iscolor / iskeyword / isurl / ispixel / ispercentage / isem 、isunit</strong></h5><blockquote>
+<p>如果待验证的值为数字 / 字符串 / 颜色 / 关键字 / url / 以px为单位的数值 / 百分数 / 以em为单位的数值 / 指定单位的数值则返回 true ，否则返回 false 。</p>
+</blockquote>
+<p>参数：<code>value</code> - 待验证的值或变量。<br> 返回值： 如果待验证的值为数字 / 字符串 / 颜色 / 关键字 / url / 以px为单位的数值 / 百分数 / 以em为单位的数值 / 指定单位的数值则返回 <code>true</code> ，否则返回 <code>false</code> 。<br> 案例：</p>
+<figure class="highlight ruby"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">iscolor(<span class="comment">#ff0);     // true</span></span><br><span class="line">iscolor(blue);     <span class="regexp">//</span> <span class="literal">true</span></span><br><span class="line">isstring(<span class="string">"string"</span>); <span class="regexp">//</span> <span class="literal">true</span></span><br><span class="line">isnumber(<span class="number">1234</span>);     <span class="regexp">//</span> <span class="literal">true</span></span><br><span class="line">isnumber(<span class="number">56</span>px);     <span class="regexp">//</span> <span class="literal">true</span></span><br><span class="line">isnumber(<span class="number">7.8</span>%);     <span class="regexp">//</span> <span class="literal">true</span></span><br><span class="line">iskeyword(keyword);  <span class="regexp">//</span> <span class="literal">true</span></span><br><span class="line">isurl(url(...)); <span class="regexp">//</span> <span class="literal">true</span></span><br><span class="line">ispixel(<span class="number">56</span>px);     <span class="regexp">//</span> <span class="literal">true</span></span><br><span class="line">ispercentage(<span class="number">7.8</span>%);     <span class="regexp">//</span> <span class="literal">true</span></span><br><span class="line">isem(<span class="number">7.8</span>em);     <span class="regexp">//</span> <span class="literal">true</span></span><br><span class="line">isunit(<span class="number">8</span>em, em);     <span class="regexp">//</span> <span class="literal">true</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="六、颜色定义函数"><a href="#六、颜色定义函数" class="headerlink" title="六、颜色定义函数"></a><strong>六、颜色定义函数</strong></h3><ul>
+<li><code>r</code>: 红色，0-255 的整数或 0-100% 的百分比数。</li>
+<li><code>g</code>: 绿色，0-255 的整数或 0-100% 的百分比数。</li>
+<li><code>b</code>: 蓝色，0-255 的整数或 0-100% 的百分比数。</li>
+<li><code>a</code>: 透明度，0-1 的整数或 0-100% 的百分比数。</li>
+<li><code>hue</code>: 色相，0-360 的整数，用于表示度数。</li>
+<li><code>saturation</code>: 饱和度，0-100% 的百分比数或 0-1 的整数。</li>
+<li><code>lightness</code>:亮度， 0-100% 的百分比数或 0-1 的整数。</li>
+<li><code>value</code>: 色调 ，0-100% 的百分比数或 0-1 的整数。</li>
+<li><code>amount</code>: 百分比 0-100%</li>
+<li><code>angle</code>: 任意数字表示角度 （+ 或 – 表示方向）</li>
+</ul>
+<h5 id="rgb-r-g-b"><a href="#rgb-r-g-b" class="headerlink" title="rgb(@r, @g, @b);"></a><strong>rgb(@r, @g, @b);</strong></h5><p>案例：<code>rgb(247, 75, 33)</code><br> 返回值：<code>#f74b21</code></p>
+<h5 id="rgba-r-g-b-a"><a href="#rgba-r-g-b-a" class="headerlink" title="rgba(@r, @g, @b, @a);"></a><strong>rgba(@r, @g, @b, @a);</strong></h5><p>案例：<code>rgb(247, 75, 33, 0.5)</code><br> 返回值：<code>rgba(247, 75, 33, 0.5)</code></p>
+<h5 id="argb-color"><a href="#argb-color" class="headerlink" title="argb(@color);"></a><strong>argb(@color);</strong></h5><blockquote>
+<p>创建格式为 #AARRGGBB 的十六进制颜色值</p>
+</blockquote>
+<p>案例：<code>argb(rgba(247, 75, 33, 0.5))</code><br> 返回值：<code>#80f74b21</code></p>
+<h5 id="hsl-hue-saturation-lightness"><a href="#hsl-hue-saturation-lightness" class="headerlink" title="hsl(@hue, @saturation, @lightness);"></a><strong>hsl(@hue, @saturation, @lightness);</strong></h5><p>案例：<code>hsl(90, 100%, 50%)</code><br> 返回值：<code>#80ff00</code></p>
+<h5 id="hsla-hue-saturation-lightness-alpha"><a href="#hsla-hue-saturation-lightness-alpha" class="headerlink" title="hsla(@hue, @saturation, @lightness, @alpha);"></a><strong>hsla(@hue, @saturation, @lightness, @alpha);</strong></h5><p>案例：<code>hsl(90, 100%, 50%, 0.5)</code><br> 返回值：<code>rgba(128, 255, 0, 0.5)</code></p>
+<h5 id="hsv-hue-saturation-value"><a href="#hsv-hue-saturation-value" class="headerlink" title="hsv(@hue, @saturation, @value);"></a><strong>hsv(@hue, @saturation, @value);</strong></h5><p>案例：<code>hsv(90, 100%, 50%)</code><br> 返回值：<code>#408000</code></p>
+<h5 id="hsva-hue-saturation-value-alpha"><a href="#hsva-hue-saturation-value-alpha" class="headerlink" title="hsva(@hue, @saturation, @value, @alpha);"></a><strong>hsva(@hue, @saturation, @value, @alpha);</strong></h5><p>案例：<code>hsva(90, 100%, 50%, 0.5)</code><br> 返回值：<code>rgba(64, 128, 0, 0.5)</code></p>
+<h5 id="hue-color"><a href="#hue-color" class="headerlink" title="hue(@color);"></a><strong>hue(@color);</strong></h5><p>案例：<code>hue(hsl(90, 100%, 50%))</code><br> 返回值：<code>90</code></p>
+<h5 id="saturation-color"><a href="#saturation-color" class="headerlink" title="saturation(@color);"></a><strong>saturation(@color);</strong></h5><p>案例：<code>saturation(hsl(90, 100%, 50%))</code><br> 返回值：<code>100%</code></p>
+<h5 id="lightness-color"><a href="#lightness-color" class="headerlink" title="lightness(@color);"></a><strong>lightness(@color);</strong></h5><p>案例：<code>lightness(hsl(90, 100%, 50%))</code><br> 返回值：<code>50%</code></p>
+<p>hsvhue(@color); // * 从颜色中提取 hue 值，以HSV色彩空间表示（色相）<br> hsvsaturation(@color); // * 从颜色中提取 saturation 值，以HSV色彩空间表示（饱和度）<br> hsvvalue(@color); // * 从颜色中提取 value 值，以HSV色彩空间表示（色调）<br> red(@color); // 从颜色值中提取 ‘red’ 值（红色）<br> green(@color); // 从颜色值中提取 ‘green’ 值（绿色）<br> blue(@color); // 从颜色值中提取 ‘blue’ 值（蓝色）<br> alpha(@color); // 从颜色值中提取 ‘alpha’ 值（透明度）</p>
+<h5 id="luma-color"><a href="#luma-color" class="headerlink" title="luma(@color);"></a><strong>luma(@color);</strong></h5><blockquote>
+<p>计算颜色对象的 luma 值（亮度的百分比表示法）。使用在WCAG2.0中定义的SMPTE C / Rec. 709 coefficients。 这个计算公式也用在 contrast() 函数中。</p>
+</blockquote>
+<p>案例：<code>luma(rgb(100, 200, 30))</code><br> 返回值：<code>65%</code></p>
+<h5 id="saturate-color-amount"><a href="#saturate-color-amount" class="headerlink" title="saturate(@color, @amount);"></a><strong>saturate(@color, @amount);</strong></h5><blockquote>
+<p>增加一定数值的颜色饱和度。</p>
+</blockquote>
+<p>案例：<code>saturate(hsl(90, 90%, 50%), 10%)</code><br> 返回值：<code>#80ff00</code>// hsl(90, 100%, 50%)</p>
+<h5 id="desaturate-color-amount"><a href="#desaturate-color-amount" class="headerlink" title="desaturate(@color, @amount);"></a><strong>desaturate(@color, @amount);</strong></h5><blockquote>
+<p>降低一定数值的颜色饱和度。</p>
+</blockquote>
+<p>案例：<code>desaturate(hsl(90, 90%, 50%), 10%)</code><br> 返回值：<code>#80e51a</code>// hsl(90, 80%, 50%)</p>
+<h5 id="lighten-color-amount"><a href="#lighten-color-amount" class="headerlink" title="lighten(@color, @amount);"></a><strong>lighten(@color, @amount);</strong></h5><blockquote>
+<p>增加一定数值的颜色亮度。</p>
+</blockquote>
+<p>案例：<code>lighten(hsl(90, 90%, 50%), 10%)</code><br> 返回值：<code>#99f53d</code>// hsl(90, 90%, 60%)</p>
+<h5 id="darken-color-amount"><a href="#darken-color-amount" class="headerlink" title="darken(@color, @amount);"></a><strong>darken(@color, @amount);</strong></h5><blockquote>
+<p>降低一定数值的颜色亮度。</p>
+</blockquote>
+<p>案例：<code>darken(hsl(90, 90%, 50%), 10%)</code><br> 返回值：<code>#66c20a</code>// hsl(90, 90%, 40%)</p>
+<h5 id="fadein-color-amount"><a href="#fadein-color-amount" class="headerlink" title="fadein(@color, @amount);"></a><strong>fadein(@color, @amount);</strong></h5><blockquote>
+<p>降低颜色的透明度（或增加不透明度），令其更不透明，对不透明的颜色无效。</p>
+</blockquote>
+<p>案例：<code>fadein(hsla(90, 90%, 50%, 0.5), 10%)</code><br> 返回值：<code>rgba(128, 242, 13, 0.6)</code>// hsla(90, 90%, 50%, 0.6)</p>
+<h5 id="fadeout-color-amount"><a href="#fadeout-color-amount" class="headerlink" title="fadeout(@color, @amount);"></a><strong>fadeout(@color, @amount);</strong></h5><blockquote>
+<p>增加颜色的透明度（或降低不透明度），令其更透明，对不透明的颜色无效。</p>
+</blockquote>
+<p>案例：<code>fadeout(hsla(90, 90%, 50%, 0.5), 10%)</code><br> 返回值：<code>rgba(128, 242, 13, 0.4)</code>// hsla(90, 90%, 50%, 0.6)</p>
+<h5 id="fade-color-amount"><a href="#fade-color-amount" class="headerlink" title="fade(@color, @amount);"></a><strong>fade(@color, @amount);</strong></h5><blockquote>
+<p>给颜色（包括不透明的颜色）设定一定数值的透明度。</p>
+</blockquote>
+<p>案例：<code>fade(hsl(90, 90%, 50%), 10%)</code><br> 返回值：<code>rgba(128, 242, 13, 0.1)</code>//hsla(90, 90%, 50%, 0.1)</p>
+<h5 id="spin-color-angle"><a href="#spin-color-angle" class="headerlink" title="spin(@color, @angle);"></a><strong>spin(@color, @angle);</strong></h5><blockquote>
+<p>向任意方向旋转颜色的色相角度 (hue angle)，旋转范围 0-360，超过一周后将从起点开始继续旋转（+ - 控制方向），比如旋转 360 度与 720 度是相同的结果。需要注意的是，颜色值会通过 RGB 格式转换，这个过程不能保留灰色的色相值（灰色没有饱和度，色相值也就没有意义了），因此要确定使用函数的方法能够保留颜色的色相值，例如不要这样使用函数：<br> <code>@c: saturate(spin(#aaaaaa, 10), 10%);</code><br> 而应该用这种方法代替：<br> <code>@c: spin(saturate(#aaaaaa, 10%), 10);</code><br> 因为颜色值永远输出为 RGB 格式，因此 spin() 函数对灰色无效。</p>
+</blockquote>
+<p>案例：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">spin(hsl(10, 90%, 50%), 20)</span><br><span class="line">spin(hsl(10, 90%, 50%), -20)</span><br></pre></td></tr></table></figure>
+
+<p>返回值：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#f27f0d // hsl(30, 90%, 50%)</span></span><br><span class="line"><span class="comment">#f20d33 // hsl(350, 90%, 50%)</span></span><br></pre></td></tr></table></figure>
+
+<h5 id="mix-color1-color2-weight-50"><a href="#mix-color1-color2-weight-50" class="headerlink" title="mix(@color1, @color2, [@weight: 50%])"></a><strong>mix(@color1, @color2, [@weight: 50%])</strong></h5><blockquote>
+<p>根据比例混合两种颜色，包括计算不透明度。</p>
+</blockquote>
+<p>@weight: 可选项：平衡两种颜色的百分比, 默认 50%。<br> 案例：</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">mix</span>(<span class="selector-id">#ff0000</span>, <span class="selector-id">#0000ff</span>, 50%)</span><br><span class="line"><span class="selector-tag">mix</span>(<span class="selector-tag">rgba</span>(100,0,0,1<span class="selector-class">.0</span>), <span class="selector-tag">rgba</span>(0,100,0,0<span class="selector-class">.5</span>), 50%)</span><br></pre></td></tr></table></figure>
+
+<p>返回值：</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-id">#800080</span></span><br><span class="line"><span class="selector-tag">rgba</span>(75, 25, 0, 0<span class="selector-class">.75</span>)</span><br></pre></td></tr></table></figure>
+
+<h5 id="greyscale-color"><a href="#greyscale-color" class="headerlink" title="greyscale(@color);"></a><strong>greyscale(@color);</strong></h5><blockquote>
+<p>完全移除颜色的饱和度，与 <code>desaturate(@color, 100%)</code>函数效果相同。因为颜色的饱和度不受色相值影响，所以输出的颜色会稍显暗淡 (dull or muddy)；如果使用luma值可能会有更好的结果，因为它提取的是百分比亮度，而不是线性亮度。比如<code>greyscale(&#39;#0000ff&#39;)</code>与<code>greyscale(&#39;#00ff00&#39;)</code>会得出相同的结果，尽管对人眼来说，它们的亮度是不一样的。</p>
+</blockquote>
+<p>案例：<code>greyscale(hsl(90, 90%, 50%))</code><br> 返回值：<code>#808080</code>// hsl(90, 0%, 50%)</p>
+<h5 id="contrast-background-darkcolor-black-lightcolor-white-threshold-43"><a href="#contrast-background-darkcolor-black-lightcolor-white-threshold-43" class="headerlink" title="contrast(@background, [@darkcolor: black], [@lightcolor: white], [@threshold: 43%])"></a><strong>contrast(@background, [@darkcolor: black], [@lightcolor: white], [@threshold: 43%])</strong></h5><blockquote>
+<p>这个函数对比 @background 的 luma 值与 @threshold 参数的大小，如果大于输出 @darkcolor, 小于则输出 @lightcolor，便于选择相对于背景更容易阅读的颜色，同时提高了使用颜色的灵活性，与 Compass 的contrast() 函数 工作方式相同。根据 WCAG 2.0 应该对比颜色的 luma 值，而不是亮度值 (lightness)。</p>
+</blockquote>
+<ul>
+<li><code>@background</code>: 需要对比的颜色对象 (A color object to compare against.)</li>
+<li><code>@darkcolor</code>: 可选项 – 指定的黑色（默认 black）</li>
+<li><code>@lightcolor</code>: 可选项 – 指定的白色（默认 white）</li>
+<li><code>@threshold</code>: 可选项 – 百分比 0-100% 界定深色过渡到浅色的转变位置（默认 43%），这个数值决定了输出结果偏向于哪一方，比如判断 50% 的灰色背景应该显示白色还是黑色的文字。一般来说，如果本色方案偏浅，则应该设低一点，否则设高一点。</li>
+</ul>
+<p>案例：</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">contrast</span>(<span class="selector-id">#aaaaaa</span>)</span><br><span class="line"><span class="selector-tag">contrast</span>(<span class="selector-id">#222222</span>, <span class="selector-id">#101010</span>)</span><br><span class="line"><span class="selector-tag">contrast</span>(<span class="selector-id">#222222</span>, <span class="selector-id">#101010</span>, <span class="selector-id">#dddddd</span>)</span><br><span class="line"><span class="selector-tag">contrast</span>(<span class="selector-tag">hsl</span>(90, 100%, 50%),<span class="selector-id">#000000</span>,<span class="selector-id">#ffffff</span>,40%);</span><br><span class="line"><span class="selector-tag">contrast</span>(<span class="selector-tag">hsl</span>(90, 100%, 50%),<span class="selector-id">#000000</span>,<span class="selector-id">#ffffff</span>,60%);</span><br></pre></td></tr></table></figure>
+
+<p>返回值：</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">#<span class="number">000000</span> <span class="comment">// black</span></span><br><span class="line"><span class="meta">#ffffff <span class="comment">// white</span></span></span><br><span class="line"><span class="meta">#dddddd</span></span><br><span class="line">#<span class="number">000000</span> <span class="comment">// black</span></span><br><span class="line"><span class="meta">#ffffff <span class="comment">// white</span></span></span><br></pre></td></tr></table></figure>
+
+<h5 id="multiply-color1-color2"><a href="#multiply-color1-color2" class="headerlink" title="multiply(@color1, @color2);"></a><strong>multiply(@color1, @color2);</strong></h5><blockquote>
+<p>分别将两种颜色的红绿蓝 (RGB) 三种值做乘法运算，然后再除以 255，输出结果是更深的颜色。（译注：对应Photoshop中的“变暗/正片叠底”。）</p>
+</blockquote>
+<h5 id="screen-color1-color2"><a href="#screen-color1-color2" class="headerlink" title="screen(@color1, @color2);"></a><strong>screen(@color1, @color2);</strong></h5><blockquote>
+<p>与 multiply() 函数效果相反，输出结果是更亮的颜色。（译注：对应Photoshop中的“变亮/滤色”。）</p>
+</blockquote>
+<h5 id="overlay-color1-color2"><a href="#overlay-color1-color2" class="headerlink" title="overlay(@color1, @color2);"></a><strong>overlay(@color1, @color2);</strong></h5><blockquote>
+<p>结合 multiply() 与 screen() 两个函数的效果，令浅的颜色变得更浅，深的颜色变得更深。（译注：对应Photoshop中的“叠加”。）注意：输出结果由第一个颜色参数决定。</p>
+</blockquote>
+<h5 id="softlight-color1-color2"><a href="#softlight-color1-color2" class="headerlink" title="softlight(@color1, @color2);"></a><strong>softlight(@color1, @color2);</strong></h5><blockquote>
+<p>与 overlay() 函数效果相似，只是当纯黑色或纯白色作为参数时输出结果不会是纯黑色或纯白色。（译注：对应Photoshop中的“柔光”。）</p>
+</blockquote>
+<h5 id="hardlight-color1-color2"><a href="#hardlight-color1-color2" class="headerlink" title="hardlight(@color1, @color2);"></a><strong>hardlight(@color1, @color2);</strong></h5><blockquote>
+<p>与 overlay() 函数效果相似，不过由第二个颜色参数决定输出颜色的亮度或黑度，而不是第一个颜色参数决定。（译注：对应Photoshop中的“强光/亮光/线性光/点光”。）</p>
+</blockquote>
+<h5 id="difference-color1-color2"><a href="#difference-color1-color2" class="headerlink" title="difference(@color1, @color2);"></a><strong>difference(@color1, @color2);</strong></h5><blockquote>
+<p>从第一个颜色值中减去第二个（分别计算 RGB 三种颜色值），输出结果是更深的颜色。（译注：对应Photoshop中的“差值/排除”。）</p>
+</blockquote>
+<h5 id="exclusion-color1-color2"><a href="#exclusion-color1-color2" class="headerlink" title="exclusion(@color1, @color2);"></a><strong>exclusion(@color1, @color2);</strong></h5><blockquote>
+<p>效果与 difference() 函数效果相似，只是输出结果差别更小 (lower contrast)。（译注：对应Photoshop中的“差值/排除”。）</p>
+</blockquote>
+<h5 id="average-color1-color2"><a href="#average-color1-color2" class="headerlink" title="average(@color1, @color2);"></a><strong>average(@color1, @color2);</strong></h5><blockquote>
+<p>分别对 RGB 的三种颜色值取平均值，然后输出结果。</p>
+</blockquote>
+<h5 id="negation-color1-color2"><a href="#negation-color1-color2" class="headerlink" title="negation(@color1, @color2);"></a><strong>negation(@color1, @color2);</strong></h5><blockquote>
+<p>与 difference() 函数效果相反，输出结果是更亮的颜色。</p>
+</blockquote>
+<p>转载至: <a href="https://www.jianshu.com/p/f836624e6cb3" target="_blank" rel="noopener">Less内置常用函数 - 简书</a></p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/ckqrx009u0003641jgha886qh/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Pr_Song">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Pr_Song's Blog">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/ckqrx009u0003641jgha886qh/" class="post-title-link" itemprop="url">Less学习手册</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2021-06-30 10:11:46" itemprop="dateCreated datePublished" datetime="2021-06-30T10:11:46+08:00">2021-06-30</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2021-07-04 20:01:26" itemprop="dateModified" datetime="2021-07-04T20:01:26+08:00">2021-07-04</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E5%AD%A6%E4%B9%A0%E6%89%8B%E5%86%8C/" itemprop="url" rel="index"><span itemprop="name">学习手册</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h3 id="Less学习手册"><a href="#Less学习手册" class="headerlink" title="Less学习手册"></a>Less学习手册</h3><h4 id="变量-Variables"><a href="#变量-Variables" class="headerlink" title="变量(Variables)"></a>变量(Variables)</h4><figure class="highlight less"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// @符号定义变量</span></span><br><span class="line"><span class="variable">@width:</span> <span class="number">10px</span>;</span><br><span class="line"><span class="variable">@height:</span> <span class="variable">@width</span> + <span class="number">10px</span>;</span><br><span class="line"></span><br><span class="line"><span class="selector-class">.box</span> &#123;</span><br><span class="line">	<span class="attribute">width</span>: <span class="variable">@width</span>;</span><br><span class="line">    <span class="attribute">height</span>: <span class="variable">@height</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//编译为</span></span><br><span class="line"><span class="selector-class">.box</span> &#123;</span><br><span class="line">    <span class="attribute">width</span>: <span class="number">10px</span>;</span><br><span class="line">    <span class="attribute">height</span>: <span class="number">20px</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/ckqrx009u0003641jgha886qh/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/ckqrx00al001w641j3sih3iik/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Pr_Song">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Pr_Song's Blog">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/ckqrx00al001w641j3sih3iik/" class="post-title-link" itemprop="url">消息队列</a>
         </h2>
 
         <div class="post-meta">
@@ -193,7 +751,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2021-06-16 17:48:52" itemprop="dateModified" datetime="2021-06-16T17:48:52+08:00">2021-06-16</time>
+                <time title="修改时间：2021-06-30 10:42:01" itemprop="dateModified" datetime="2021-06-30T10:42:01+08:00">2021-06-30</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -223,7 +781,7 @@
 </ul>
           <!--noindex-->
             <div class="post-button">
-              <a class="btn" href="/ckpzaqstb001r4c1j8smbhdpc/#more" rel="contents">
+              <a class="btn" href="/ckqrx00al001w641j3sih3iik/#more" rel="contents">
                 阅读全文 &raquo;
               </a>
             </div>
@@ -247,7 +805,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/ckpzaqst3000s4c1j4yoxgjcq/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/ckqrx00ao0027641jd6sb8fde/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -261,7 +819,7 @@
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
           
-            <a href="/ckpzaqst3000s4c1j4yoxgjcq/" class="post-title-link" itemprop="url">koa2框架及中间件</a>
+            <a href="/ckqrx00ao0027641jd6sb8fde/" class="post-title-link" itemprop="url">koa2框架及中间件</a>
         </h2>
 
         <div class="post-meta">
@@ -302,10 +860,10 @@
 
       
           <h3 id="koa2框架"><a href="#koa2框架" class="headerlink" title="koa2框架"></a>koa2框架</h3><p>Koa 应用程序是一个包含一组中间件函数的对象，它是按照类似堆栈的方式组织和执行的（洋葱模型 如图）。Koa 并没有捆绑任何中间件， 而是提供了一套优雅的方法，帮助您快速而愉快地编写服务端应用程序（渐进式 类似vue）。</p>
-<img src="/ckpzaqst3000s4c1j4yoxgjcq/1.png" class="" title="图1">
+<img src="/ckqrx00ao0027641jd6sb8fde/1.png" class="" title="图1">
           <!--noindex-->
             <div class="post-button">
-              <a class="btn" href="/ckpzaqst3000s4c1j4yoxgjcq/#more" rel="contents">
+              <a class="btn" href="/ckqrx00ao0027641jd6sb8fde/#more" rel="contents">
                 阅读全文 &raquo;
               </a>
             </div>
@@ -329,7 +887,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/ckpzaqst8001c4c1j9ksv1e4f/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/ckqrx00aq002b641j943l0it3/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -343,7 +901,7 @@
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
           
-            <a href="/ckpzaqst8001c4c1j9ksv1e4f/" class="post-title-link" itemprop="url">常用正则表达式</a>
+            <a href="/ckqrx00aq002b641j943l0it3/" class="post-title-link" itemprop="url">常用正则表达式</a>
         </h2>
 
         <div class="post-meta">
@@ -394,7 +952,7 @@
 <h4 id="手机号码"><a href="#手机号码" class="headerlink" title="手机号码"></a>手机号码</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 需实时根据运营商最新号段更新</span></span><br><span class="line">^<span class="number">1</span>\d&#123;<span class="number">10</span>&#125;$</span><br></pre></td></tr></table></figure>
           <!--noindex-->
             <div class="post-button">
-              <a class="btn" href="/ckpzaqst8001c4c1j9ksv1e4f/#more" rel="contents">
+              <a class="btn" href="/ckqrx00aq002b641j943l0it3/#more" rel="contents">
                 阅读全文 &raquo;
               </a>
             </div>
@@ -418,7 +976,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/ckpzaqst9001f4c1jfwwp0g02/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/ckqrx00as002l641jh8566nvu/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -432,7 +990,7 @@
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
           
-            <a href="/ckpzaqst9001f4c1jfwwp0g02/" class="post-title-link" itemprop="url">正则表达式</a>
+            <a href="/ckqrx00as002l641jh8566nvu/" class="post-title-link" itemprop="url">正则表达式</a>
         </h2>
 
         <div class="post-meta">
@@ -476,7 +1034,7 @@
 <h3 id="简单的正则表达式"><a href="#简单的正则表达式" class="headerlink" title="简单的正则表达式"></a>简单的正则表达式</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 脚本加载后，正则表达式字面量就会被编译。当正则表达式保持不变时，使用此方法可获得更好的性能。</span></span><br><span class="line"><span class="keyword">const</span> re = <span class="regexp">/ab+c/</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 在脚本运行过程中，用构造函数创建的正则表达式会被编译。如果正则表达式将会改变，或者它将会从用户输入等来源中动态地产生，就需要使用构造函数来创建正则表达式。</span></span><br><span class="line"><span class="keyword">const</span> re = <span class="keyword">new</span> <span class="built_in">RegExp</span>(<span class="string">"ab+c"</span>);</span><br></pre></td></tr></table></figure>
           <!--noindex-->
             <div class="post-button">
-              <a class="btn" href="/ckpzaqst9001f4c1jfwwp0g02/#more" rel="contents">
+              <a class="btn" href="/ckqrx00as002l641jh8566nvu/#more" rel="contents">
                 阅读全文 &raquo;
               </a>
             </div>
@@ -500,7 +1058,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/ckpzaqsts00344c1jg7h779es/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/ckqrx00ar002e641jhrax4jq3/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -514,7 +1072,7 @@
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
           
-            <a href="/ckpzaqsts00344c1jg7h779es/" class="post-title-link" itemprop="url">网络状态检测</a>
+            <a href="/ckqrx00ar002e641jhrax4jq3/" class="post-title-link" itemprop="url">网络状态检测</a>
         </h2>
 
         <div class="post-meta">
@@ -595,7 +1153,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/ckpzaqst600154c1jbvaogagr/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/ckqrx00an0024641jfz2obt2c/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -609,7 +1167,7 @@
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
           
-            <a href="/ckpzaqst600154c1jbvaogagr/" class="post-title-link" itemprop="url">webpack概念</a>
+            <a href="/ckqrx00an0024641jfz2obt2c/" class="post-title-link" itemprop="url">webpack概念</a>
         </h2>
 
         <div class="post-meta">
@@ -707,7 +1265,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/ckpzaqsst00074c1jb8x0b6f0/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/ckqrx00ai001g641j1l3t7x84/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -721,7 +1279,7 @@
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
           
-            <a href="/ckpzaqsst00074c1jb8x0b6f0/" class="post-title-link" itemprop="url">SPA、SSR和SEO</a>
+            <a href="/ckqrx00ai001g641j1l3t7x84/" class="post-title-link" itemprop="url">SPA、SSR和SEO</a>
         </h2>
 
         <div class="post-meta">
@@ -837,244 +1395,6 @@
   
   
 
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/ckpzaqst0000k4c1jaywndebi/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="Pr_Song">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Pr_Song's Blog">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/ckpzaqst0000k4c1jaywndebi/" class="post-title-link" itemprop="url">CheckList（检查手册）</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2021-01-14 12:22:40" itemprop="dateCreated datePublished" datetime="2021-01-14T12:22:40+08:00">2021-01-14</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2021-04-09 13:33:31" itemprop="dateModified" datetime="2021-04-09T13:33:31+08:00">2021-04-09</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E6%A3%80%E6%9F%A5%E6%89%8B%E5%86%8C/" itemprop="url" rel="index"><span itemprop="name">检查手册</span></a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h3 id="检查手册"><a href="#检查手册" class="headerlink" title="检查手册"></a>检查手册</h3><h4 id="兼容性问题"><a href="#兼容性问题" class="headerlink" title="兼容性问题"></a>兼容性问题</h4><ol>
-<li><p>window.open</p>
-<blockquote>
-<p>Safari中无法open新窗口，原因是Safari的安全机制将其阻止，一些异步操作，比如ajax回调里面执行window.open就会失效，原因是代码自己自动执行的，被IOS的安全机制拦截！</p>
-<p>解决方法：</p>
-<p>使用window.location.href = url;【或者使用window.location.replace（）来替代当前的url】</p>
-</blockquote>
-</li>
-<li></li>
-</ol>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/ckpzaqssr00044c1jh39n23oj/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="Pr_Song">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Pr_Song's Blog">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/ckpzaqssr00044c1jh39n23oj/" class="post-title-link" itemprop="url">JavaScript数组操作小技巧</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-              
-
-              <time title="创建时间：2020-09-30 10:25:28 / 修改时间：11:24:30" itemprop="dateCreated datePublished" datetime="2020-09-30T10:25:28+08:00">2020-09-30</time>
-            </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E5%AD%A6%E4%B9%A0%E6%89%8B%E5%86%8C/" itemprop="url" rel="index"><span itemprop="name">学习手册</span></a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h4 id="1-数组去重"><a href="#1-数组去重" class="headerlink" title="1. 数组去重"></a>1. 数组去重</h4><ul>
-<li>.from()</li>
-<li>拓展运算符…</li>
-</ul>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> a = [<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">1</span>,<span class="number">2</span>];</span><br><span class="line"><span class="comment">// Array.from()</span></span><br><span class="line"><span class="keyword">let</span> b = <span class="built_in">Array</span>.from(<span class="keyword">new</span> <span class="built_in">Set</span>(a));</span><br><span class="line"><span class="comment">// 拓展运算符...</span></span><br><span class="line"><span class="keyword">let</span> c = [...new <span class="built_in">Set</span>(a)];</span><br></pre></td></tr></table></figure>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/ckpzaqssr00044c1jh39n23oj/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/ckpzaqssp00034c1ja6xu4wnh/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="Pr_Song">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Pr_Song's Blog">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/ckpzaqssp00034c1ja6xu4wnh/" class="post-title-link" itemprop="url">Blob、File和FileReader</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-              
-
-              <time title="创建时间：2020-09-28 10:37:52 / 修改时间：16:49:16" itemprop="dateCreated datePublished" datetime="2020-09-28T10:37:52+08:00">2020-09-28</time>
-            </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E5%AD%A6%E4%B9%A0%E6%89%8B%E5%86%8C/" itemprop="url" rel="index"><span itemprop="name">学习手册</span></a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h3 id="Blob"><a href="#Blob" class="headerlink" title="Blob"></a>Blob</h3><h4 id="概念"><a href="#概念" class="headerlink" title="概念"></a>概念</h4><p><code>Blob</code> 对象表示一个不可变、原始数据的类文件对象。它的数据可以按文本或二进制的格式进行读取，也可以转换成 <a href="https://developer.mozilla.org/zh-CN/docs/Web/API/ReadableStream" target="_blank" rel="noopener"><code>ReadableStream</code></a> 来用于数据操作。 (from MDN)</p>
-<p>Blob的全称是<code>binary large object</code>，表示二进制大对象。简单来说，Blob就是一个只读的二进制文件，我们可以知道它的文件大小（size），文件类型（type），并可以对其作出分割（slice）。</p>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/ckpzaqssp00034c1ja6xu4wnh/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
 
   
   <nav class="pagination">
@@ -1144,7 +1464,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">22</span>
+          <span class="site-state-item-count">25</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
